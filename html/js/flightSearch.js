@@ -234,7 +234,7 @@ async function handleFlightSearch(event) {
           console.log("Search Results:", data.offers);
           localStorage.setItem('flightSearchResults', JSON.stringify(data.offers));
           if (!window.location.pathname.includes('flights-list.html')) {
-            window.location.href = '../flights/flights-list.html';        
+            window.location.href = '/html/flights/flights-list.html';        
           } else {
               const offersContainer = document.getElementById("flights-container");
               displayFlightResults(data.offers, offersContainer);
