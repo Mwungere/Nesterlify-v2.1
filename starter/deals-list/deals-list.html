@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Title -->
+    <title>Deals List | MyTravel - Responsive Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="../../assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../../assets/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../../assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="../../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../../assets/vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="../../assets/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="../../documentation/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../documentation/assets/vendor/prism/prism.css">
+    <link rel="stylesheet" href="../../assets/css/font-mytravel.css">
+
+
+
+    <!-- CSS MyTravel Template -->
+    <link rel="stylesheet" href="../../assets/css/theme.css">
+
+    <!-- CSS MyTravel Doc -->
+    <link rel="stylesheet" href="../../documentation/assets/css/starter.css">
+    </head>
+    <body>
+        <!-- ========== HEADER ========== -->
+        <header id="header" class="u-header u-header--starter">
+            <nav id="logoAndNav" class="navbar navbar-light bg-light fixed-top flex-nowrap p-0">
+                <div class="col-md-4 col-lg-3 col-xl-2 bg-md-dark navbar-brand u-header__navbar-brand u-header__navbar-brand-center mr-0 py-3">
+                    <a class="u-header__navbar-brand-text-white d-flex align-items-center" href="index.html" aria-label="MyTravel">
+                        <svg class="d-none d-md-block"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="32px" style="margin-bottom: 0;">
+                            <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+                             d="M32.872,30.917 C31.376,32.369 28.961,32.359 27.477,30.896 L25.201,28.670 C24.961,28.427 24.961,28.041 25.201,27.798 C25.447,27.549 25.853,27.542 26.108,27.783 L28.384,30.009 C29.366,30.941 30.928,30.941 31.910,30.009 C32.914,29.057 32.938,27.489 31.965,26.507 L30.971,25.534 C30.731,25.291 30.731,24.906 30.971,24.663 C31.217,24.414 31.623,24.407 31.878,24.648 L32.871,25.620 C32.879,25.627 32.886,25.634 32.893,25.641 C34.377,27.104 34.367,29.467 32.872,30.917 ZM29.584,22.583 C29.522,22.583 29.461,22.574 29.402,22.557 C29.402,22.557 29.402,22.557 29.401,22.557 C29.062,22.458 28.869,22.109 28.970,21.777 C30.008,18.362 29.512,14.677 27.608,11.641 C23.902,5.734 16.002,3.884 9.963,7.508 C9.944,7.521 9.924,7.532 9.904,7.543 C9.593,7.709 9.203,7.596 9.034,7.292 C8.865,6.988 8.980,6.607 9.291,6.442 C11.512,5.105 14.070,4.398 16.679,4.400 C18.037,4.401 19.388,4.594 20.690,4.972 C28.162,7.143 32.419,14.828 30.199,22.136 C30.117,22.401 29.868,22.583 29.584,22.583 ZM8.532,4.843 L7.891,4.216 C7.651,3.974 7.651,3.588 7.891,3.345 C8.137,3.096 8.543,3.089 8.798,3.330 L9.439,3.957 C9.679,4.200 9.679,4.585 9.439,4.828 C9.193,5.077 8.787,5.084 8.532,4.843 ZM5.968,2.335 L5.615,1.990 C4.633,1.058 3.071,1.058 2.089,1.990 C1.085,2.943 1.060,4.510 2.034,5.492 L6.233,9.600 C6.354,9.718 6.421,9.877 6.421,10.043 C6.421,10.389 6.134,10.670 5.780,10.670 C5.610,10.670 5.447,10.604 5.327,10.486 L1.128,6.380 C1.120,6.372 1.113,6.365 1.106,6.358 C-0.378,4.895 -0.368,2.533 1.127,1.082 C2.623,-0.369 5.038,-0.360 6.522,1.103 L6.874,1.449 C6.880,1.454 6.885,1.459 6.890,1.464 C7.136,1.713 7.129,2.110 6.874,2.351 C6.620,2.591 6.214,2.584 5.968,2.335 ZM4.786,11.985 C5.106,12.133 5.242,12.507 5.090,12.820 C3.234,16.652 3.483,21.142 5.752,24.755 C9.459,30.659 17.358,32.507 23.395,28.881 C23.414,28.868 23.434,28.856 23.454,28.845 C23.765,28.680 24.154,28.792 24.324,29.096 C24.493,29.401 24.378,29.781 24.067,29.947 C21.845,31.284 19.287,31.990 16.679,31.988 C14.593,31.987 12.532,31.534 10.647,30.661 C3.603,27.399 0.597,19.171 3.932,12.282 C4.084,11.969 4.466,11.836 4.786,11.985 ZM24.890,21.342 C25.099,21.301 25.315,21.366 25.466,21.513 L26.749,22.767 C26.999,23.012 26.999,23.409 26.749,23.654 L24.450,25.902 C22.991,27.329 20.625,27.329 19.166,25.902 L15.397,22.216 L13.286,24.281 C13.035,24.525 12.629,24.525 12.379,24.281 L11.097,23.026 C10.954,22.886 10.887,22.687 10.917,22.491 L11.513,18.415 L7.783,14.768 C6.825,13.831 6.825,12.311 7.783,11.374 C8.741,10.436 10.295,10.436 11.254,11.374 L14.884,14.923 L22.162,11.363 C22.409,11.243 22.707,11.290 22.902,11.481 L24.184,12.735 C24.435,12.980 24.435,13.377 24.184,13.621 L18.868,18.821 L22.021,21.903 L24.890,21.342 ZM12.832,22.951 L14.490,21.329 L12.644,19.524 L12.230,22.361 L12.832,22.951 ZM21.353,23.026 L17.506,19.264 C17.256,19.020 17.256,18.623 17.506,18.378 L22.823,13.178 L22.321,12.687 L15.042,16.247 C14.795,16.368 14.497,16.320 14.302,16.129 L10.345,12.260 C10.125,12.045 9.827,11.924 9.516,11.924 C8.869,11.925 8.344,12.438 8.345,13.071 C8.343,13.376 8.466,13.668 8.686,13.884 L12.641,17.752 L15.847,20.887 L20.068,25.015 C21.027,25.953 22.581,25.953 23.539,25.015 L25.385,23.210 L24.798,22.637 L21.930,23.198 C21.720,23.238 21.504,23.174 21.353,23.026 Z"/>
+                        </svg>
+                        <svg class="d-md-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34px" height="32px" style="margin-bottom: 0;">
+                            <path fill-rule="evenodd" class="fill-primary"
+                             d="M32.872,30.917 C31.376,32.369 28.961,32.359 27.477,30.896 L25.201,28.670 C24.961,28.427 24.961,28.041 25.201,27.798 C25.447,27.549 25.853,27.542 26.108,27.783 L28.384,30.009 C29.366,30.941 30.928,30.941 31.910,30.009 C32.914,29.057 32.938,27.489 31.965,26.507 L30.971,25.534 C30.731,25.291 30.731,24.906 30.971,24.663 C31.217,24.414 31.623,24.407 31.878,24.648 L32.871,25.620 C32.879,25.627 32.886,25.634 32.893,25.641 C34.377,27.104 34.367,29.467 32.872,30.917 ZM29.584,22.583 C29.522,22.583 29.461,22.574 29.402,22.557 C29.402,22.557 29.402,22.557 29.401,22.557 C29.062,22.458 28.869,22.109 28.970,21.777 C30.008,18.362 29.512,14.677 27.608,11.641 C23.902,5.734 16.002,3.884 9.963,7.508 C9.944,7.521 9.924,7.532 9.904,7.543 C9.593,7.709 9.203,7.596 9.034,7.292 C8.865,6.988 8.980,6.607 9.291,6.442 C11.512,5.105 14.070,4.398 16.679,4.400 C18.037,4.401 19.388,4.594 20.690,4.972 C28.162,7.143 32.419,14.828 30.199,22.136 C30.117,22.401 29.868,22.583 29.584,22.583 ZM8.532,4.843 L7.891,4.216 C7.651,3.974 7.651,3.588 7.891,3.345 C8.137,3.096 8.543,3.089 8.798,3.330 L9.439,3.957 C9.679,4.200 9.679,4.585 9.439,4.828 C9.193,5.077 8.787,5.084 8.532,4.843 ZM5.968,2.335 L5.615,1.990 C4.633,1.058 3.071,1.058 2.089,1.990 C1.085,2.943 1.060,4.510 2.034,5.492 L6.233,9.600 C6.354,9.718 6.421,9.877 6.421,10.043 C6.421,10.389 6.134,10.670 5.780,10.670 C5.610,10.670 5.447,10.604 5.327,10.486 L1.128,6.380 C1.120,6.372 1.113,6.365 1.106,6.358 C-0.378,4.895 -0.368,2.533 1.127,1.082 C2.623,-0.369 5.038,-0.360 6.522,1.103 L6.874,1.449 C6.880,1.454 6.885,1.459 6.890,1.464 C7.136,1.713 7.129,2.110 6.874,2.351 C6.620,2.591 6.214,2.584 5.968,2.335 ZM4.786,11.985 C5.106,12.133 5.242,12.507 5.090,12.820 C3.234,16.652 3.483,21.142 5.752,24.755 C9.459,30.659 17.358,32.507 23.395,28.881 C23.414,28.868 23.434,28.856 23.454,28.845 C23.765,28.680 24.154,28.792 24.324,29.096 C24.493,29.401 24.378,29.781 24.067,29.947 C21.845,31.284 19.287,31.990 16.679,31.988 C14.593,31.987 12.532,31.534 10.647,30.661 C3.603,27.399 0.597,19.171 3.932,12.282 C4.084,11.969 4.466,11.836 4.786,11.985 ZM24.890,21.342 C25.099,21.301 25.315,21.366 25.466,21.513 L26.749,22.767 C26.999,23.012 26.999,23.409 26.749,23.654 L24.450,25.902 C22.991,27.329 20.625,27.329 19.166,25.902 L15.397,22.216 L13.286,24.281 C13.035,24.525 12.629,24.525 12.379,24.281 L11.097,23.026 C10.954,22.886 10.887,22.687 10.917,22.491 L11.513,18.415 L7.783,14.768 C6.825,13.831 6.825,12.311 7.783,11.374 C8.741,10.436 10.295,10.436 11.254,11.374 L14.884,14.923 L22.162,11.363 C22.409,11.243 22.707,11.290 22.902,11.481 L24.184,12.735 C24.435,12.980 24.435,13.377 24.184,13.621 L18.868,18.821 L22.021,21.903 L24.890,21.342 ZM12.832,22.951 L14.490,21.329 L12.644,19.524 L12.230,22.361 L12.832,22.951 ZM21.353,23.026 L17.506,19.264 C17.256,19.020 17.256,18.623 17.506,18.378 L22.823,13.178 L22.321,12.687 L15.042,16.247 C14.795,16.368 14.497,16.320 14.302,16.129 L10.345,12.260 C10.125,12.045 9.827,11.924 9.516,11.924 C8.869,11.925 8.344,12.438 8.345,13.071 C8.343,13.376 8.466,13.668 8.686,13.884 L12.641,17.752 L15.847,20.887 L20.068,25.015 C21.027,25.953 22.581,25.953 23.539,25.015 L25.385,23.210 L24.798,22.637 L21.930,23.198 C21.720,23.238 21.504,23.174 21.353,23.026 Z"/>
+                        </svg>
+                        <span class="u-header__navbar-brand-text font-weight-medium">MyTravel</span>
+                    </a>
+                    <a class="small ml-3" href="../../documentation/getting-started/changelog.html">
+                        <span class="badge badge-white u-header--starter__badge">v1.0</span>
+                    </a>
+                </div>
+
+                <!-- Header Search -->
+                <form class="form-inline input-group input-group-sm d-none d-md-flex mr-auto ml-md-4" style="max-width: 500px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="docsSearch">
+                            <span class="fas fa-search"></span>
+                        </span>
+                    </div>
+                    <input class="js-hs-docs-search form-control" type="text" placeholder="Search..." aria-label="Search..." aria-describedby="docsSearch" data-url="../../documentation/assets/ajax/autocomplete-data-for-starter-search.json">
+                </form>
+                <!-- End Header Search -->
+
+                <!-- Header Links -->
+                <ul class="navbar-nav u-header--starter text-nowrap flex-row align-items-center pr-3 ml-0 ml-sm-3">
+                    <li class="nav-item ml-md-4">
+                        <a class="nav-link" href="../../documentation" title="Documentation">
+                            <span class="fas fa-laptop-code mr-sm-1"></span>
+                            <span class="d-none d-lg-inline-block">Documentation</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ml-3 ml-sm-5">
+                        <a class="btn btn-sm btn-dark d-none d-md-block" href="../html/home" title="Live Preview">
+                            <span class="far fa-eye mr-sm-1"></span>
+                            Live Preview
+                        </a>
+                        <a class="btn btn-xs btn-dark d-md-none" href="../html/home" title="Live Preview">
+                            <span class="far fa-eye mr-sm-1"></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Header Links -->
+            </nav>
+        </header>
+        <!-- ========== END HEADER ========== -->
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <nav class="col-md-4 col-lg-3 col-xl-2 bg-dark-1 hs-sidebar navbar-expand-md">
+                    <div class="d-flex d-md-none justify-content-between mb-3">
+                        <!-- Sidebar Search -->
+                        <form class="col form-inline input-group-sm">
+                            <input class="js-hs-docs-search form-control form-control-sm w-100 border-0" type="text" placeholder="Search..." data-url="../../documentation/assets/ajax/autocomplete-data-for-starter-search.json">
+                        </form>
+                        <!-- End Sidebar Search -->
+
+                        <!-- Responsive Toggle Button -->
+                        <button class="btn btn-link text-white pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav" aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
+                                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
+                            </svg>
+                        </button>
+                        <!-- End Responsive Toggle Button -->
+                    </div>
+
+                    <!-- Sidebar Nav -->
+                    <div class="collapse navbar-collapse" id="sidebar-nav">
+                        <div class="js-scrollbar hs-sidebar-sticky">
+                            <ul id="sidebarNav" class="hs-sidebar__nav">
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../index.html">Introduction</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../header-layouts.html">Header Layouts</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../banner/banner.html">Banner</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../Destination/destination.html">Destination</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../icon-blocks/icon-blocks.html">Icon Blocks</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../hero.html">Hero</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../tabs/tabs.html">Tabs</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../deal-carousel/deal-carousel.html">Deal Carousel</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../testimonial/testimonial.html">Testimonials</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../footer/footer.html">Footer</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../recent-article/recent-article.html">Recent Article</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../category/category.html">Category</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link active" href="deals-list.html">Deals List</a></li>
+                                <li class="hs-sidebar__item"><a class="hs-sidebar__link" href="../clients/clients.html">Clients</a></li>
+                                <li class="hs-sidebar__item">
+                                    <a class="hs-sidebar__link dropdown-toggle dropdown-toggle-collapse" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sidebarNav12Collapse" data-target="#sidebarNav12Collapse">Product Cards</a>
+                                    <ul id="sidebarNav12Collapse" class="collapse list-unstyled ml-2" data-parent="#sidebarNav">
+                                        <li><a class="hs-sidebar__link" href="../product-cards/product-cards-static.html">Static</a></li>
+                                        <li><a class="hs-sidebar__link" href="../product-cards/product-cards-carousel.html">With Carousel</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Sidebar Nav -->
+                </nav>
+                <!-- End Sidebar -->
+
+                <main id="content" class="col-md-8 col-lg-9 col-xl-10 px-lg-10 pt-md-11 pb-7 ml-md-auto">
+                    <div id="deals-list">
+                        <div class="border-bottom mb-4 pb-md-6 mb-md-6">
+                            <h1 class="font-weight-semi-bold">Deals List</h1>
+                        </div>
+                        <!-- Component Block -->
+                        <div id="deals-list-v1" class="mb-9">
+                            <h2 class="h4 mb-4">Deals list #v1 <a class="anchorjs-link" href="#deals-list-v1" data-anchorjs-icon="#"></a></h2>
+                            <!-- Tab Wrapper -->
+                            <div class="tab-wrapper">
+                                <!-- Nav Classic -->
+                                <ul class="nav nav-classic" id="pills-tab-1" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="pills-result-tab-1" data-toggle="pill" href="#pills-result-1" role="tab" aria-controls="pills-result-1" aria-selected="true">RESULT</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="pills-html-tab-1" data-toggle="pill" href="#pills-html-1" role="tab" aria-controls="pills-html-1" aria-selected="false">HTML</a>
+                                    </li>
+                                </ul>
+                                <!-- End Nav Classic -->
+
+                                <!-- Tab Content -->
+                                <div class="tab-content" id="pills-tabContent-1">
+                                    <div class="tab-pane show active" id="pills-result-1" role="tabpanel" aria-labelledby="pills-html-tab-1">
+                                        <!-- Deals-List v1 -->
+                                        <div class="bg-img-hero min-height-600" style="background-image: url(../../assets/img/1920x600/img2.jpg);">
+                                            <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-8 pb-1 pt-7">
+                                                <h2 class="section-title-1 mb-0">Travel Deals</h2>
+                                            </div>
+                                            <div class="container">
+                                                <div class="row mb-xl-5">
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Las Vegas</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Hawaii</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Florida</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Philippines</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-xl-5">
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Mexico</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">India</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Australia</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">California</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-xl-5">
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Europe</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Italy</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Spain</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Costa Rica</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-0">
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">San Francisco</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Atlanda</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-4 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Germany</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-3">
+                                                        <a class="d-block mb-6 mb-xl-0" href="#">
+                                                            <div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover">
+                                                                <h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0">Mexico</h6>
+                                                                <span class="font-size-19 font-weight-bold text-gray-1 mr-1">£350.00</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Deals-List v1 -->
+                                    </div>
+
+                                    <div class="tab-pane" id="pills-html-1" role="tabpanel" aria-labelledby="pills-html-tab-1">
+                                        <pre>
+                                            <code class="language-html" data-lang="html">
+                                                &lt;!-- Deals-List v1 --&gt;
+                                                &lt;div class="bg-img-hero min-height-600" style="background-image: url(../../assets/img/1920x600/img2.jpg);"&gt;
+                                                    &lt;div class="w-md-80 w-lg-50 text-center mx-md-auto mb-8 pb-1 pt-7"&gt;
+                                                        &lt;h2 class="section-title-1 text-white font-size-30 font-weight-bold mb-0"&gt;Travel Deals&lt;/h2&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class="container"&gt;
+                                                        &lt;div class="row mb-xl-5"&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Las Vegas&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Hawaii&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Florida&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Philippines&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                        &lt;div class="row mb-xl-5"&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Mexico&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;India&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Australia&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;California&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                        &lt;div class="row mb-xl-5"&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Europe&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Italy&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Spain&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Costa Rica&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                        &lt;div class="row mb-0"&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;San Francisco&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Atlanda&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-4 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Germany&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                            &lt;div class="col-md-6 col-xl-3"&gt;
+                                                                &lt;a class="d-block mb-6 mb-xl-0" href="#"&gt;
+                                                                    &lt;div class="text-hover bg-white p-3 rounded-xs d-flex justify-content-between transition-3d-hover"&gt;
+                                                                        &lt;h6 class="font-size-17 font-weight-normal text-gray-5 ml-1 mb-0"&gt;Mexico&lt;/h6&gt;
+                                                                        &lt;span class="font-size-19 font-weight-bold text-gray-1 mr-1"&gt;£350.00&lt;/span&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/a&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;!-- End Deals-List v1 --&gt;
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Component Block -->
+                    </div>
+                </main>
+            </div>
+        </div>
+        <!-- ========== END MAIN CONTENT ========== -->
+
+
+        <!-- Go to Top -->
+            <a class="js-go-to u-go-to" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400"
+            data-compensation="#header"
+            data-show-effect="slideInUp"
+            data-hide-effect="slideOutDown">
+            <span class="fas fa-arrow-up u-go-to__inner"></span>
+            </a>
+        <!-- End Go to Top -->
+
+       <!-- JS Global Compulsory -->
+        <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../../assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+        <script src="../../assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+        <!-- JS Implementing Plugins -->
+        <script src="../../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+        <script src="../../assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
+        <script src="../../assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+        <script src="../../documentation/assets/vendor/jquery-ui/jquery-ui.core.min.js"></script>
+        <script src="../../documentation/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+        <script src="../../documentation/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+        <script src="../../documentation/assets/vendor/jquery-ui/ui/widgets/autocomplete.js"></script>
+        <script src="../../documentation/assets/vendor/prism/prism.js"></script>
+        <script src="../../assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+
+        <!-- JS MyTravel -->
+        <script src="../../assets/js/hs.core.js"></script>
+        <script src="../../assets/js/components/hs.header.js"></script>
+        <script src="../../assets/js/components/hs.unfold.js"></script>
+        <script src="../../assets/js/components/hs.fancybox.js"></script>
+        <script src="../../assets/js/components/hs.svg-injector.js"></script>
+        <script src="../../assets/js/components/hs.go-to.js"></script>
+        <script src="../../documentation/assets/js/components/hs.autocomplete-local-search.js"></script>
+
+        <!-- JS Plugins Init. -->
+        <script>
+            $(window).on('load', function () {
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+            });
+
+            // initialization of svg injector module
+            $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+            });
+
+            $(document).on('ready', function () {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#header'));
+
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+            // initialization of fancybox
+            $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
+
+            // initialization of autocomplet
+            $.HSCore.components.HSLocalSearchAutocomplete.init('.js-hs-docs-search');
+
+            });
+        </script>
+    </body>
+</html>

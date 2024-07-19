@@ -1,0 +1,353 @@
+        <div class=" terms_tab border-bottom border-color-8 pt-lg-1">
+            <div class="container mb-4 mb-lg-11 pb-lg-1">
+                <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                        <div class="py-4 border border-color-7 rounded-xs mb-4 mb-md-0">
+                            <h6 class="text-gray-6 font-weight-bold font-size-17 px-4 ml-xl-1 mt-xl-1 mb-4 pb-1">
+                                Navigation</h6>
+                            <!-- Tab Wrapper -->
+                            <div class="tab-wrapper shadow-none">
+                                <ul class="nav flex-column mb-0 tab-nav-list" id="pills-tab" role="tablist">
+                                    <li class="nav-item mx-0 mb-2 pb-1">
+                                        <a class="nav-link px-4 d-flex align-items-center active"
+                                            id="pills-one-example1-tab" data-toggle="pill" href="#pills-one-example1"
+                                            role="tab" aria-controls="pills-one-example1" aria-selected="true">
+                                            <i class="fas fa-chevron-right font-size-12 mr-1 text-gray-3"></i>
+                                            <span class="font-weight-normal ml-1 text-gray-1">Privacy Policy</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item mx-0 mb-2 pb-1">
+                                        <a class="nav-link px-4 d-flex align-items-center" id="pills-two-example1-tab"
+                                            data-toggle="pill" href="#pills-two-example1" role="tab"
+                                            aria-controls="pills-two-example1" aria-selected="false">
+                                            <i class="fas fa-chevron-right font-size-12 mr-1 text-gray-3"></i>
+                                            <span class="font-weight-normal text-gray-1 ml-1">Security</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item mx-0 mb-2 pb-1">
+                                        <a class="nav-link px-4 d-flex align-items-center" id="pills-four-example1-tab"
+                                            data-toggle="pill" href="#pills-three-example1" role="tab"
+                                            aria-controls="pills-four-example1" aria-selected="false">
+                                            <i class="fas fa-chevron-right font-size-12 mr-1 text-gray-3"></i>
+                                            <span class="font-weight-normal text-gray-1 ml-1">Terms and Condition</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item mx-0 mb-2 pb-1">
+                                        <a class="nav-link px-4 d-flex align-items-center" id="pills-five-example1-tab"
+                                            data-toggle="pill" href="#pills-five-example1" role="tab"
+                                            aria-controls="pills-five-example1" aria-selected="false">
+                                            <i class="fas fa-chevron-right font-size-12 mr-1 text-gray-3"></i>
+                                            <span class="font-weight-normal text-gray-1 ml-1">Disclaimer</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item mx-0 mb-2 pb-1">
+                                        <a class="nav-link px-4 d-flex align-items-center" id="pills-six-example1-tab"
+                                            data-toggle="pill" href="#pills-six-example1" role="tab"
+                                            aria-controls="pills-six-example1" aria-selected="false">
+                                            <i class="fas fa-chevron-right font-size-12 mr-1 text-gray-3"></i>
+                                            <span class="font-weight-normal text-gray-1 ml-1">AML/KYC Policy</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <!-- Tab Content -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-one-example1" role="tabpanel"
+                                aria-labelledby="pills-one-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">NESTERLIFY PRIVACY
+                                    POLICY</h4>
+                                <ol>
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Introduction</strong></p>
+                                        <p class="text-lh-lg text-gray-1">Nesterlify is committed to protecting your
+                                            privacy. This Privacy Policy explains how we collect, use, and share your
+                                            personal information when you use our website and mobile app (collectively,
+                                            the "Services").</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Information We Collect</strong></p>
+                                        <p class="text-lh-lg text-gray-1">We collect the following types of information:
+                                        </p>
+                                        <p class="text-lh-lg text-gray-1"><strong>Information you provide to us:
+                                            </strong>This includes your name, email address, phone number, address,
+                                            payment information, and other information you provide when you create an
+                                            account, send or receive money, or use other features of our Services.</p>
+                                        <p class="text-lh-lg text-gray-1"><strong>Information we collect automatically:
+                                            </strong>This includes your IP address, device type, browser type, operating
+                                            system, the pages you visit on our Services, and other information about how
+                                            you use our Services.</p>
+                                        p class="text-lh-lg text-gray-1"><strong>Information we collect from third
+                                            parties: </strong>This includes information about you from our partners,
+                                        such as banks and financial institutions.</p>
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>How We Use Your Information</strong></p>
+                                        <p class="text-lh-lg text-gray-1">We use your information for the following purposes:
+                                        </p>
+                                        <ul>
+                                            <li>To provide our Services to you.</li>
+                                            <li>To improve our Services.</li>
+                                            <li>To prevent fraud and abuse.</li>
+                                            <li>To comply with applicable laws and regulations.</li>
+                                            <li>To send you marketing communications, if you have consented to receive them.</li>
+                                        </ul>
+                        
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>How We Share Your Information</strong></p>
+                                        <p class="text-lh-lg text-gray-1">We share your information with the following third parties:
+                                        </p>
+                                        <p class="text-lh-lg text-gray-1"><strong>Our partners, such as banks and financial institutions, who help us to provide our Services. Service providers who help us to operate our business, such as cloud storage providers and customer support providers. Law enforcement agencies, if required by law.</p>
+                                   
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Your Choices</strong></p>
+                                        <p class="text-lh-lg text-gray-1">You have the following choices regarding your personal information:
+                                        </p>
+                                        <p class="text-lh-lg text-gray-1"><strong>You can access and update your personal information in your account settings.<br>
+                                            You can opt out of receiving marketing communications from us.<br>
+                                            You can request that we delete your personal information.
+                                            </p>
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Security</strong></p>
+                                        <p class="text-lh-lg text-gray-1">We take several measures to protect your personal information from unauthorized access, use, or disclosure. These measures include physical, technical, and administrative safeguards.</p>
+
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Changes to This Privacy Policy</strong></p>
+                                        <p class="text-lh-lg text-gray-1">We may update this Privacy Policy from time to time. If we make any material changes, we will notify you by email or through a notice on our website.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Contact Us</strong></p>
+                                        <p class="text-lh-lg text-gray-1">If you have any questions about this Privacy Policy, please contact us at support@nesterlify.com
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Your Consent</strong></p>
+                                        <p class="text-lh-lg text-gray-1">By using our Services, you consent to the collection, use, and sharing of your personal information as described in this Privacy Policy.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <p class="text-lh-lg text-gray-1"><strong>Additional Information</strong></p>
+                                     
+                                        <p class="text-lh-lg text-gray-1"><strong>Data Retention:
+                                            </strong>We retain your personal information for as long as necessary to provide our Services to you and to comply with applicable laws and regulations.</p>
+                                        <p class="text-lh-lg text-gray-1"><strong>Data Transfers:
+                                            </strong>We may transfer your personal information to countries other than the country in which you reside. These countries may not have the same data protection laws as your country. However, we will take measures to protect your personal information in accordance with this Privacy Policy.</p>
+                                        <p class="text-lh-lg text-gray-1"><strong>Children's Privacy: </strong>Our Services are not intended for children under the age of 13. We do not knowingly collect personal information from children under the age of 13.</p>
+                                    </li>
+                                </ol>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1"></p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-two-example1" role="tabpanel"
+                                aria-labelledby="pills-two-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">SECURITY</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                
+                            </div>
+                            <div class="tab-pane fade" id="pills-three-example1" role="tabpanel"
+                                aria-labelledby="pills-three-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Sliders</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-four-example1" role="tabpanel"
+                                aria-labelledby="pills-four-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Terms and Condition
+                                </h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-five-example1" role="tabpanel"
+                                aria-labelledby="pills-five-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Address & Map</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-six-example1" role="tabpanel"
+                                aria-labelledby="pills-six-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Reservations
+                                    Requests</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-seven-example1" role="tabpanel"
+                                aria-labelledby="pills-seven-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Your Reservations
+                                </h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-eight-example1" role="tabpanel"
+                                aria-labelledby="pills-eight-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Search Results</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-nine-example1" role="tabpanel"
+                                aria-labelledby="pills-nine-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Color Schemes</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-ten-example1" role="tabpanel"
+                                aria-labelledby="pills-ten-example1-tab">
+                                <h4 class="text-size-21 font-weight-semi-bold text-gray-3 mb-3 pb-1">Responsiveness</h4>
+                                <p class="text-lh-lg text-gray-1">Searcys St Pancras' adored Champagne bar is famously
+                                    the longest in Europe. Here, guests can enjoy panoramic views of the magnificent
+                                    station. For those looking to enjoy a glass of something special, the menu showcases
+                                    a variety of Champagne and sparkling wines from around the world, including nine
+                                    options by the glass. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Maecenas in pulvinar neque.Nulla finibus lobortis pulvinar. Donec a consectetur
+                                    nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt.
+                                    Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                                    iaculis massa faucibus feugiat. In fermentum facilisis massa,a consequat purus
+                                    viverra</p>
+                                <h4 class="font-size-16 font-weight-semi-bold">Our Terms</h4>
+                                <p class="text-lh-lg text-gray-1">A wonderful serenity has taken possession of my entire
+                                    soul, like these sweet mornings of spring which I enjoy with my whole heart. I am
+                                    alone, and feel the charm of existence in this spot, which was created for the bliss
+                                    of souls like mine. I am so happy,
+                                    my dear friend, so absorbed in the exquisite.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
