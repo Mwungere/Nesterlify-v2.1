@@ -169,11 +169,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           flightCard.innerHTML = `
               <div class="card transition-3d-hover shadow-hover-2 h-100">
                   <div class="position-relative">
-                      <a href="../flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                      <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
                           <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description"  >
                       </a>
                       <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                          <a href="../flights/flight-booking.html">
+                          <a href="/html/flights/flight-booking.html">
                               <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
                           </a>
                           <span class="ml-2 text-white">${operating_carrier.name}</span>
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                       </div>
                   </div>
                   <div class="card-body px-3 pt-2">
-                      <a href="../flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+                      <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
                       <div class="font-size-14 text-gray-1">
                           Oneway Flight
                       </div>
