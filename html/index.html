@@ -260,636 +260,274 @@
 
                     </ul>
                     <!-- End Nav Classic -->
-                    <div class="tab-content hero-tab-pane">
-                        <div class="tab-pane fade active show" id="pills-one-example2" role="tabpanel"
-                            aria-labelledby="pills-one-example2-tab">
-                            <!-- Search Jobs Form -->
-                            <div class="card border-0 tab-shadow">
-                                <div class="tab-content hero-tab-pane">
-                                    <div class="tab-pane fade active show" id="pills-one-example2" role="tabpanel"
-                                        aria-labelledby="pills-one-example2-tab">
-                                        <form class="js-validate">
-                                            <div
-                                                class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
-                                                <div class="col-sm-12 col-lg-6 col-xl-2dot3 mb-4 mb-xl-0 ">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">From
-                                                        where</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="input-group border-bottom-1">
-                                                            <i
-                                                                class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <input id="fromWhere" type="text" name="fromWhere"
-                                                                class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
-                                                                placeholder="city or airport"
-                                                                aria-label="Keyword or title">
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-                                                <div class="col-sm-12 col-lg-6 col-xl-2dot3 mb-4 mb-xl-0 ">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">To
-                                                        where</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="input-group border-bottom-1">
-                                                            <i
-                                                                class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <input id="toWhere" type="text" name="toWhere"
-                                                                class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
-                                                                placeholder="city or airport"
-                                                                aria-label="Keyword or title">
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0 ">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
-                                                    <div class="border-bottom-1">
-                                                        <div id="datepickerWrapperFromOne"
-                                                            class="u-datepicker input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="d-flex align-items-center mr-2">
-                                                                    <i
-                                                                        class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                                </span>
-                                                            </div>
-                                                            <input id="departReturn"
-                                                                class="js-range-datepicker  font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
-                                                                type="date" data-rp-wrapper="#datepickerWrapperFromOne"
-                                                                data-rp-type="single" data-rp-date-format="Y-m-d">
-                                                        </div>
-                                                        <!-- End Datepicker -->
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-6 col-xl-2dot4 text-left mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="d-flex border-bottom-1">
-                                                            <i
-                                                                class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <select id="travelers"
-                                                                class="js-select selectpicker dropdown-select">
-                                                                <option value="adult economy" selected>1 Adult - Economy
-                                                                </option>
-                                                                <option value="adult economy">3 Adults - Economy
-                                                                </option>
-                                                                <option value="adult business">2 Adults - Business
-                                                                </option>
-                                                                <option value="adult business">4 Adults - Business
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg col-xl-1dot8">
-                                                    <button id="submitButtonHome" type="submit"
-                                                        class="btn btn-primary width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
-                                                            class="flaticon-magnifying-glass mr-2"></i>Search</button>
-                                                </div>
-                                            </div>
-                                            <!-- End Checkbox -->
-                                        </form>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-two-example2" role="tabpanel"
-                                        aria-labelledby="pills-two-example2-tab">
-                                        <form class="js-validate">
-                                            <div
-                                                class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
-                                                <div class="col-sm-12 col-lg-6 col-xl-3dot7 mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">From
-                                                        where</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="input-group border-bottom-1">
-                                                            <i
-                                                                class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <input type="text"
-                                                                class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
-                                                                placeholder="city or airport"
-                                                                aria-label="Keyword or title">
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-                                                <div class="col-sm-12 col-lg-6 col-xl-3dot6 mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
-                                                    <div class="border-bottom-1">
-                                                        <div id="datepickerWrapperFromtwo"
-                                                            class="u-datepicker input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="d-flex align-items-center mr-2">
-                                                                    <i
-                                                                        class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                                </span>
-                                                            </div>
-                                                            <input
-                                                                class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
-                                                                type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
-                                                                data-rp-type="range" data-rp-date-format="M d / Y"
-                                                                data-rp-default-date='["Jul 7 / 2020", "Aug 25 / 2020"]'>
-                                                        </div>
-                                                        <!-- End Datepicker -->
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-6 col-xl-2dot8 text-left mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="d-flex border-bottom-1">
-                                                            <i
-                                                                class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <select class="js-select selectpicker dropdown-select">
-                                                                <option value="2 Rooms - 3 Guests" selected>1 Adult -
-                                                                    Economy
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">3 Adults - Economy
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">2 Adults - Business
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">4 Adults - Business
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-12 col-xl-1dot8">
-                                                    <button type="submit"
-                                                        class="btn btn-primary width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
-                                                            class="flaticon-magnifying-glass mr-2"></i>Search</button>
-                                                </div>
-                                            </div>
-                                            <!-- End Checkbox -->
-                                        </form>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-three-example2" role="tabpanel"
-                                        aria-labelledby="pills-three-example2-tab">
-                                        <form class="js-validate">
-                                            <div
-                                                class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
-                                                <div class="col-sm-12 col-lg-6 col-xl-3dot7 mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">From
-                                                        where</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="input-group border-bottom-1">
-                                                            <i
-                                                                class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <input type="text"
-                                                                class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
-                                                                placeholder="city or airport"
-                                                                aria-label="Keyword or title">
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-                                                <div class="col-sm-12 col-lg-6 col-xl-3dot6 mb-4 mb-xl-0 ">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
-                                                    <div class="border-bottom-1">
-                                                        <div id="datepickerWrapperFromtwo"
-                                                            class="u-datepicker input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="d-flex align-items-center mr-2">
-                                                                    <i
-                                                                        class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                                </span>
-                                                            </div>
-                                                            <input
-                                                                class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
-                                                                type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
-                                                                data-rp-type="range" data-rp-date-format="M d / Y"
-                                                                data-rp-default-date='["Jul 7 / 2020", "Aug 25 / 2020"]'>
-                                                        </div>
-                                                        <!-- End Datepicker -->
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-6 col-xl-2dot8 text-left mb-4 mb-xl-0">
-                                                    <!-- Input -->
-                                                    <span
-                                                        class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
-                                                    <div class="js-focus-state">
-                                                        <div class="d-flex border-bottom-1">
-                                                            <i
-                                                                class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
-                                                            <select class="js-select selectpicker dropdown-select">
-                                                                <option value="2 Rooms - 3 Guests" selected>1 Adult -
-                                                                    Economy
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">3 Adults - Economy
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">2 Adults - Business
-                                                                </option>
-                                                                <option value="2 Rooms - 3 Guests">4 Adults - Business
-                                                                </option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Input -->
-                                                </div>
-
-                                                <div class="col-sm-12 col-lg-12 col-xl-1dot8">
-                                                    <button type="submit"
-                                                        class="btn btn-primary width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
-                                                            class="flaticon-magnifying-glass mr-2"></i>Search</button>
-                                                </div>
-                                            </div>
-                                            <!-- End Checkbox -->
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Search Jobs Form -->
-                        </div>
-                        <div class="tab-pane fade" id="pills-two-example2" role="tabpanel"
-                            aria-labelledby="pills-two-example2-tab">
-                            <!-- Search Jobs Form -->
-                            <div class="card border-0 tab-shadow">
+                    <div class="bg-gray-33 py-1">
+                        <div class="container">
+                            <div class="border-0">
                                 <div class="card-body">
-                                    <form class="js-validate">
-                                        <div
-                                            class="row d-block nav-select d-lg-flex mb-lg-3 px-2 px-lg-3 align-items-end">
-                                            <div class="col-sm-12 col-lg-3dot6 col-xl-3gdot5 mb-4 mb-lg-0 ">
-                                                <span
-                                                    class="d-block text-gray-1 font-weight-normal text-left mb-0">Destination
-                                                    or Hotel Name</span>
-                                                <!-- Select -->
-                                                <select
-                                                    class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold"
-                                                    title="Where are you going?" data-style="" data-live-search="true"
-                                                    data-searchbox-classes="input-group-sm">
-                                                    <option class="border-bottom border-color-1" value="project1"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">London, United Kingdom</span>
-                                                        </span>'>
-                                                        London, United Kingdom
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project2"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">New York, United States</span>
-                                                        </span>'>
-                                                        New York, United States
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project3"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">New South Wales, Australia</span>
-                                                        </span>'>
-                                                        New South Wales, Australia
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project4"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">Istanbul, Turkey</span>
-                                                        </span>'>
-                                                        Istanbul, Turkey
-                                                    </option>
-                                                    <option class="" value="project4" data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">Reykjavík, Iceland</span>
-                                                        </span>'>
-                                                        Reykjavík, Iceland
-                                                    </option>
-                                                </select>
-                                                <!-- End Select -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-lg-3dot7 col-xl-3gdot5 mb-4 mb-lg-0 ">
-                                                <!-- Input -->
-                                                <span
-                                                    class="d-block text-gray-1 text-left font-weight-normal mb-0">Check
-                                                    In - Out</span>
-                                                <div class="border-bottom border-width-2 border-color-1">
-                                                    <div id="datepickerWrapperFromTwo" class="u-datepicker input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="d-flex align-items-center mr-2">
+                                    <ul class="nav tab-nav tab-nav-1-inner flex-nowrap pb-2 mb-md-1 px-lg-3 px-2" role="tablist">
+                                        <li class="nav-item flex-shrink-0 flex-shrink-md-1">
+                                            <a class="nav-link font-weight-medium active" id="pills-one-example2-tab"
+                                                data-toggle="pill" href="#pills-one-example2" role="tab"
+                                                aria-controls="pills-one-example2" aria-selected="true">
+                                                <div
+                                                    class="d-flex flex-column flex-md-row  position-relative text-black align-items-center">
+                                                    <span class="tabtext font-size-12 font-weight-semi-bold">ROUND-TRIP</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item flex-shrink-0 flex-shrink-md-1">
+                                            <a class="nav-link font-weight-medium" id="pills-two-example2-tab" data-toggle="pill"
+                                                href="#pills-two-example2" role="tab" aria-controls="pills-two-example2"
+                                                aria-selected="true">
+                                                <div
+                                                    class="d-flex flex-column flex-md-row  position-relative text-black align-items-center">
+                                                    <span class="tabtext font-size-12 font-weight-semi-bold">ONE-WAY</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item flex-shrink-0 flex-shrink-md-1">
+                                            <a class="nav-link font-weight-medium" id="pills-three-example2-tab" data-toggle="pill"
+                                                href="#pills-three-example2" role="tab" aria-controls="pills-three-example2"
+                                                aria-selected="true">
+                                                <div
+                                                    class="d-flex flex-column flex-md-row  position-relative text-black align-items-center">
+                                                    <span class="tabtext font-size-12 font-weight-semi-bold">MULTI-CITY</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content hero-tab-pane">
+                                        <div class="tab-pane fade active show" id="pills-one-example2" role="tabpanel"
+                                            aria-labelledby="pills-one-example2-tab">
+                                            <form class="js-validate" id="searchingForm">
+                                                <div
+                                                    class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
+                                                    <div class="col-sm-12 col-lg-6 col-xl-2dot3 mb-4 mb-xl-0 ">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From
+                                                            where</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="input-group border-bottom-1">
                                                                 <i
-                                                                    class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                            </span>
-                                                        </div>
-                                                        <input
-                                                            class="js-range-datepicker font-size-16 shadow-none font-weight-medium form-control hero-form bg-transparent  border-0"
-                                                            type="date" data-rp-wrapper="#datepickerWrapperFromTwo"
-                                                            data-rp-type="range" data-rp-date-format="M d / Y"
-                                                            data-rp-default-date='["Jul 7 / 2020", "Aug 25 / 2020"]'>
-                                                    </div>
-                                                    <!-- End Datepicker -->
-                                                </div>
-                                                <!-- End Input -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-xl-3 mb-4 mb-lg-0 dropdown-custom">
-                                                <!-- Input -->
-                                                <span
-                                                    class="d-block text-gray-1 text-left font-weight-normal mb-0">Rooms
-                                                    and Guests</span>
-                                                <a id="basicDropdownClickInvoker2"
-                                                    class="dropdown-nav-link dropdown-toggle d-flex pt-3 pb-2"
-                                                    href="javascript:;" role="button"
-                                                    aria-controls="basicDropdownClick2" aria-haspopup="true"
-                                                    aria-expanded="false" data-unfold-event="click"
-                                                    data-unfold-target="#basicDropdownClick2"
-                                                    data-unfold-type="css-animation" data-unfold-duration="300"
-                                                    data-unfold-delay="300" data-unfold-hide-on-scroll="true"
-                                                    data-unfold-animation-in="slideInUp"
-                                                    data-unfold-animation-out="fadeOut">
-                                                    <i
-                                                        class="flaticon-plus d-flex align-items-center mr-3 font-size-18 text-primary font-weight-semi-bold"></i>
-                                                    <span class="text-black font-size-16 font-weight-semi-bold">2 Rooms
-                                                        - 3 Guests</span>
-                                                </a>
-                                                <div id="basicDropdownClick2"
-                                                    class="dropdown-menu dropdown-unfold col-11 m-0"
-                                                    aria-labelledby="basicDropdownClickInvoker2">
-                                                    <div class="w-100 py-2 px-3 mb-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Rooms</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
+                                                                    class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                <input id="fromWhere" type="text" name="fromWhere"
+                                                                    class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
+                                                                    placeholder="city or airport" aria-label="Keyword or title">
                                                             </div>
                                                         </div>
+                                                        <!-- End Input -->
                                                     </div>
-                                                    <div class="w-100 py-2 px-3 mb-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
+                                                    <div class="col-sm-12 col-lg-6 col-xl-2dot3 mb-4 mb-xl-0 ">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">To
+                                                            where</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="input-group border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                <input id="toWhere" type="text" name="toWhere"
+                                                                    class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
+                                                                    placeholder="city or airport" aria-label="Keyword or title">
                                                             </div>
                                                         </div>
+                                                        <!-- End Input -->
                                                     </div>
-                                                    <div class="w-100 py-2 px-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Child</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
+            
+                                                    <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0 ">
+                                                        <!-- Input -->
+                                                        <span
+                                                            class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
+                                                        <div class="border-bottom-1">
+                                                            <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="d-flex align-items-center mr-2">
+                                                                        <i
+                                                                            class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input id="departReturn"
+                                                                    class="js-range-datepicker  font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
+                                                                    type="date" data-rp-wrapper="#datepickerWrapperFromOne"
+                                                                    data-rp-type="single" data-rp-date-format="Y-m-d">
+                                                            </div>
+                                                            <!-- End Datepicker -->
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+            
+                                                    <div class="col-sm-12 col-lg-6 col-xl-2dot4 text-left mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="d-flex border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                    <select class="js-select selectpicker dropdown-select" id="travelers">
+                                                                        <option value="1 economy" selected>1 Adult - Economy</option>
+                                                                        <option value="2 economy">3 Adults - Economy</option>
+                                                                        <option value="3 business">2 Adults - Business</option>
+                                                                        <option value="4 business">4 Adults - Business</option>
+                                                                    </select>
                                                             </div>
                                                         </div>
+                                                        <!-- End Input -->
                                                     </div>
-                                                    <div class="w-100 text-right py-1 pr-5">
-                                                        <a class="text-primary font-weight-semi-bold font-size-16"
-                                                            href="#">Done</a>
+            
+                                                    <div class="col-sm-12 col-lg col-xl-1dot8">
+                                                        <button id="submitButton" type="submit"
+                                                            class="btn btn-blue-1 width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
+                                                                class="flaticon-magnifying-glass mr-2"></i>Search</button>
                                                     </div>
                                                 </div>
-                                                <!-- End Input -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-xl-2 align-self-lg-end text-md-right">
-                                                <button type="submit"
-                                                    class="btn btn-primary btn-md border-radius-3 mb-xl-0 mb-lg-1 transition-3d-hover"><i
-                                                        class="flaticon-magnifying-glass font-size-20 mr-2"></i>Search</button>
-                                            </div>
+                                                <!-- End Checkbox -->
+                                            </form>
                                         </div>
-                                        <!-- End Checkbox -->
-                                    </form>
+                                        <div class="tab-pane fade" id="pills-two-example2" role="tabpanel"
+                                            aria-labelledby="pills-two-example2-tab">
+                                            <form class="js-validate" id="searchingForm">
+                                                <div
+                                                    class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
+                                                    <div class="col-sm-12 col-lg-6 col-xl-3dot7 mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From
+                                                            where</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="input-group border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                <input type="text" id="fromWhere" name="fromWhere"
+                                                                    class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
+                                                                    placeholder="city or airport" aria-label="Keyword or title">
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-6 col-xl-3dot6 mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span
+                                                            class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
+                                                        <div class="border-bottom-1">
+                                                            <div id="datepickerWrapperFromtwo" class="u-datepicker input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="d-flex align-items-center mr-2">
+                                                                        <i
+                                                                            class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input
+                                                                   id="departReturn"
+                                                                    class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
+                                                                    type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
+                                                                    data-rp-type="range" data-rp-date-format="M d / Y"
+                                                                    data-rp-default-date='["Jul 20 / 2024", "Jul 21 / 2024"]'>
+                                                            </div>
+                                                            <!-- End Datepicker -->
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+            
+                                                    <div class="col-sm-12 col-lg-6 col-xl-2dot8 text-left mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="d-flex border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                    <select class="js-select selectpicker dropdown-select" id="travelers">
+                                                                        <option value="1 economy" selected>1 Adult - Economy</option>
+                                                                        <option value="2 economy">3 Adults - Economy</option>
+                                                                        <option value="3 business">2 Adults - Business</option>
+                                                                        <option value="4 business">4 Adults - Business</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+            
+                                                    <div class="col-sm-12 col-lg-12 col-xl-1dot8">
+                                                        <button type="submit"
+                                                            class="btn btn-blue-1 width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
+                                                                class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                                    </div>
+                                                </div>
+                                                <!-- End Checkbox -->
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-three-example2" role="tabpanel"
+                                            aria-labelledby="pills-three-example2-tab">
+                                            <form class="js-validate" id="searchingForm">
+                                                <div
+                                                    class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end">
+                                                    <div class="col-sm-12 col-lg-6 col-xl-3dot7 mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">From
+                                                            where</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="input-group border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                <input type="text" id="fromWhere" name="fromWhere"
+                                                                    class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
+                                                                    placeholder="city or airport" aria-label="Keyword or title">
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-6 col-xl-3dot6 mb-4 mb-xl-0 ">
+                                                        <!-- Input -->
+                                                        <span
+                                                            class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
+                                                        <div class="border-bottom-1">
+                                                            <div id="datepickerWrapperFromtwo" class="u-datepicker input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="d-flex align-items-center mr-2">
+                                                                        <i
+                                                                            class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <input
+                                                                id="toWhere" name="departReturn"
+                                                                    class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
+                                                                    type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
+                                                                    data-rp-type="range" data-rp-date-format="M d / Y"
+                                                                    data-rp-default-date='["Jul 20 / 2024", "Jul 21 / 2024"]'>
+                                                            </div>
+                                                            <!-- End Datepicker -->
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+            
+                                                    <div class="col-sm-12 col-lg-6 col-xl-2dot8 text-left mb-4 mb-xl-0">
+                                                        <!-- Input -->
+                                                        <span class="d-block text-gray-1 font-weight-normal mb-0">Travelers</span>
+                                                        <div class="js-focus-state">
+                                                            <div class="d-flex border-bottom-1">
+                                                                <i
+                                                                    class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold"></i>
+                                                                    <select class="js-select selectpicker dropdown-select" id="travelers">
+                                                                        <option value="1 economy" selected>1 Adult - Economy</option>
+                                                                        <option value="2 economy">3 Adults - Economy</option>
+                                                                        <option value="3 business">2 Adults - Business</option>
+                                                                        <option value="4 business">4 Adults - Business</option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <!-- End Input -->
+                                                    </div>
+            
+                                                    <div class="col-sm-12 col-lg-12 col-xl-1dot8">
+                                                        <button type="submit"
+                                                            class="btn btn-blue-1 width-lg-200 text-white border-radius-2 font-weight-bold btn-md mb-xl-0 mb-lg-1 transition-3d-hover w-100 w-md-auto"><i
+                                                                class="flaticon-magnifying-glass mr-2"></i>Search</button>
+                                                    </div>
+                                                </div>
+                                                <!-- End Checkbox -->
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- End Search Jobs Form -->
                         </div>
-                        <div class="tab-pane fade" id="pills-three-example2" role="tabpanel"
-                            aria-labelledby="pills-three-example2-tab">
-                            <!-- Search Jobs Form -->
-                            <div class="card border-0 tab-shadow">
-                                <div class="card-body">
-                                    <form class="js-validate">
-                                        <div
-                                            class="row d-block nav-select d-lg-flex mb-lg-3 px-2 px-lg-3 align-items-end">
-                                            <div class="col-sm-12 col-lg-3dot6 col-xl-3gdot5 mb-4 mb-lg-0 ">
-                                                <span
-                                                    class="d-block text-gray-1 font-weight-normal text-left mb-0">Destination
-                                                    or Hotel Name</span>
-                                                <!-- Select -->
-                                                <select
-                                                    class="js-select selectpicker dropdown-select tab-dropdown col-12 pl-0 flaticon-pin-1 d-flex align-items-center text-primary font-weight-semi-bold"
-                                                    title="Where are you going?" data-style="" data-live-search="true"
-                                                    data-searchbox-classes="input-group-sm">
-                                                    <option class="border-bottom border-color-1" value="project1"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">London, United Kingdom</span>
-                                                        </span>'>
-                                                        London, United Kingdom
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project2"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">New York, United States</span>
-                                                        </span>'>
-                                                        New York, United States
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project3"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">New South Wales, Australia</span>
-                                                        </span>'>
-                                                        New South Wales, Australia
-                                                    </option>
-                                                    <option class="border-bottom border-color-1" value="project4"
-                                                        data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">Istanbul, Turkey</span>
-                                                        </span>'>
-                                                        Istanbul, Turkey
-                                                    </option>
-                                                    <option class="" value="project4" data-content='
-                                                        <span class="d-flex align-items-center">
-                                                            <span class="font-size-16">Reykjavík, Iceland</span>
-                                                        </span>'>
-                                                        Reykjavík, Iceland
-                                                    </option>
-                                                </select>
-                                                <!-- End Select -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-lg-3dot7 col-xl-3gdot5 mb-4 mb-lg-0 ">
-                                                <!-- Input -->
-                                                <span
-                                                    class="d-block text-gray-1 text-left font-weight-normal mb-0">Check
-                                                    In - Out</span>
-                                                <div class="border-bottom border-width-2 border-color-1">
-                                                    <div id="datepickerWrapperFromThree"
-                                                        class="u-datepicker input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="d-flex align-items-center mr-2">
-                                                                <i
-                                                                    class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                            </span>
-                                                        </div>
-                                                        <input
-                                                            class="js-range-datepicker font-size-16 shadow-none font-weight-medium form-control hero-form bg-transparent  border-0"
-                                                            type="date" data-rp-wrapper="#datepickerWrapperFromThree"
-                                                            data-rp-type="range" data-rp-date-format="M d / Y"
-                                                            data-rp-default-date='["Jul 7 / 2020", "Aug 25 / 2020"]'>
-                                                    </div>
-                                                    <!-- End Datepicker -->
-                                                </div>
-                                                <!-- End Input -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-xl-3 mb-4 mb-lg-0 dropdown-custom">
-                                                <!-- Input -->
-                                                <span
-                                                    class="d-block text-gray-1 text-left font-weight-normal mb-0">Rooms
-                                                    and Guests</span>
-                                                <a id="basicDropdownClickInvoker3"
-                                                    class="dropdown-nav-link dropdown-toggle d-flex pt-3 pb-2"
-                                                    href="javascript:;" role="button"
-                                                    aria-controls="basicDropdownClick3" aria-haspopup="true"
-                                                    aria-expanded="false" data-unfold-event="click"
-                                                    data-unfold-target="#basicDropdownClick3"
-                                                    data-unfold-type="css-animation" data-unfold-duration="300"
-                                                    data-unfold-delay="300" data-unfold-hide-on-scroll="true"
-                                                    data-unfold-animation-in="slideInUp"
-                                                    data-unfold-animation-out="fadeOut">
-                                                    <i
-                                                        class="flaticon-plus d-flex align-items-center mr-3 font-size-18 text-primary font-weight-semi-bold"></i>
-                                                    <span class="text-black font-size-16 font-weight-semi-bold">2 Rooms
-                                                        - 3 Guests</span>
-                                                </a>
-                                                <div id="basicDropdownClick3"
-                                                    class="dropdown-menu dropdown-unfold col-11 m-0"
-                                                    aria-labelledby="basicDropdownClickInvoker3">
-                                                    <div class="w-100 py-2 px-3 mb-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Rooms</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-100 py-2 px-3 mb-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Adults</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-100 py-2 px-3">
-                                                        <div
-                                                            class="js-quantity mx-3 row align-items-center justify-content-between">
-                                                            <span
-                                                                class="d-block font-size-16 text-secondary font-weight-medium">Child</span>
-                                                            <div class="d-flex">
-                                                                <a class="js-minus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                                </a>
-                                                                <input
-                                                                    class="js-result form-control h-auto border-0 rounded p-0 max-width-6 text-center"
-                                                                    type="text" value="1">
-                                                                <a class="js-plus btn btn-icon btn-medium btn-outline-secondary rounded-circle"
-                                                                    href="javascript:;">
-                                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w-100 text-right py-1 pr-5">
-                                                        <a class="text-primary font-weight-semi-bold font-size-16"
-                                                            href="#">Done</a>
-                                                    </div>
-                                                </div>
-                                                <!-- End Input -->
-                                            </div>
-
-                                            <div class="col-sm-12 col-xl-2 align-self-lg-end text-md-right">
-                                                <button type="submit"
-                                                    class="btn btn-primary btn-md border-radius-3 mb-xl-0 mb-lg-1 transition-3d-hover"><i
-                                                        class="flaticon-magnifying-glass font-size-20 mr-2"></i>Search</button>
-                                            </div>
-                                        </div>
-                                        <!-- End Checkbox -->
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- End Search Jobs Form -->
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -1420,6 +1058,8 @@
 
     <!-- Cusrom jquery -->
     <script src="../assets/js/jquery/index.js"></script>
+
+    <script src="/html/js/flightSearch.js"></script>
 
     <!-- JS Global Compulsory -->
     <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
