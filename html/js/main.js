@@ -91,176 +91,120 @@ async function fetchOffersWithRetry(retryCount = 0) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const offersContainer = document.getElementById("offers-container");
-  let flightCount = 0;
+  const cheapOffersContainer = document.getElementById("cheap-offers-container");
   const maxFlights = 3;
-  
-  // List of major airports
-  const airports = ["JFK", "LAX", "ATL", "ORD", "DFW", "DEN", "SFO", "SEA", "LAS", "MIA"];
 
-  // Function to get a random airport code
-  function getRandomAirport() {
-    return airports[Math.floor(Math.random() * airports.length)];
-  }
+  offersContainer.innerHTML = "<p>Loading offers...</p>";
+  cheapOffersContainer.innerHTML = "<p>Loading offers...</p>";
 
-  // Function to get tomorrow's date
-  function getTomorrowDate() {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split("T")[0];
-  }
-
-  // Example logic to determine number of adults
-  const adults = 2; // Example value, adjust as per your logic
-  
-  const origin = getRandomAirport();
-  let destination;
-  
-  // Ensure destination is different from origin
-  do {
-    destination = getRandomAirport();
-  } while (destination === origin);
-  
-  const departureDate = getTomorrowDate();
-  const returnDate = calculateReturnDate(departureDate, 11);
-  const childAge = parseInt(10) || undefined;
-
+  // Function to fetch offers
   async function fetchOffers() {
     try {
-      const offerRequestResponse = await fetch("https://nesterlify-server-6.onrender.com/api/offer_requests", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: {
-            slices: [
-              {
-                origin,
-                destination,
-                departure_date: departureDate,
-              },
-              {
-                origin: destination,
-                destination: origin,
-                departure_date: returnDate,
-              },
-              
-            ],
-            passengers: Array(adults).fill({ type: "adult" }).concat(childAge ? [{ age: childAge }] : []),
-            cabin_class: "economy",
-          },
-        }),
-      });
+      let offers = await fetchOffersWithRetry();
 
-      const offerRequestData = await offerRequestResponse.json();
-      const offerRequestId = offerRequestData.data.id;
+      let cheapOffers = offers.filter(offer => parseFloat(offer.total_amount) < 800);
+      let expensiveOffers = offers.filter(offer => parseFloat(offer.total_amount) >= 800);
 
-      const response = await fetch(`https://nesterlify-server-6.onrender.com/api/offers/${offerRequestId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      });
+      let fetchedCheap = cheapOffers.length > 0;
+      let fetchedExpensive = expensiveOffers.length > 0;
 
-      const data = await response.json();
-
-      if (data.offers && data.offers.length > 0) {
-        const displayedCarriers = new Set();
-
-        data.offers.slice(0, maxFlights).forEach((offer, index) => {
-          offer.slices.forEach((slice) => {
-            slice.segments.forEach((segment) => {
-              const { operating_carrier, departing_at, operating_carrier_flight_number } = segment;
-      
-              if (!displayedCarriers.has(operating_carrier_flight_number) && !displayedCarriers.has(departing_at)) {
-                displayedCarriers.add(operating_carrier_flight_number);
-                displayedCarriers.add(departing_at);
-        
-                const flightCard = document.createElement("div");
-                flightCard.classList.add("col-md-6", "col-xl-3", "mb-3", "mb-md-4", "pb-1");
-                flightCard.setAttribute("data-wow-delay", "0.1s");
-        
-                const { total_currency, total_amount } = offer;
-                const { origin, destination, duration } = segment;
-        
-                flightCard.innerHTML = `
-                    <div class="card transition-3d-hover shadow-hover-2 h-100">
-                        <div class="position-relative">
-                            <a href="../flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
-                                <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description"  >
-                            </a>
-                            <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                                <a href="../flights/flight-booking.html">
-                                    <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
-                                </a>
-                                <span class="ml-2 text-white">${operating_carrier.name}</span>
-                            </div>
-                            <div class="position-absolute bottom-0 left-0 right-0">
-                                <div class="px-3 pb-2">
-                                    <div class="text-white my-1"> 
-                                        <span class="mr-1 font-size-14">From</span>
-                                        <span class="font-weight-bold font-size-19">${origin.city_name}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body px-3 pt-2">
-                            <a href="../flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
-                            <div class="font-size-14 text-gray-1">
-                                Oneway Flight
-                            </div>
-                        </div>
-                    </div>
-`;
-
-        
-                offersContainer.appendChild(flightCard);
-              }
-            });
-          });
-        });
-
-        document.querySelectorAll(".view-detail").forEach((button) => {
-          button.addEventListener("click", (event) => {
-            const offerIndex = event.target.getAttribute("data-offer-index");
-            showFlightDetails(data.offers[offerIndex]);
-          });
-        });
-
-        document.querySelectorAll('.book-now').forEach(button => {
-          button.addEventListener('click', (event) => {
-            const flightNumber = event.target.getAttribute('data-flight-number');
-            const departingAt = event.target.getAttribute('data-departing-at');
-            const origin = event.target.getAttribute('data-origin');
-            const flightAmount = event.target.getAttribute('data-amount');
-            const destination = event.target.getAttribute('data-destination');
-
-            const bookingFormModal = document.getElementById('bookingFormModal');
-
-            const bookingFormModalInstance = new bootstrap.Modal(bookingFormModal, {
-              backdrop: 'static',
-              keyboard: false
-            });
-            bookingFormModalInstance.show();
-
-            displayBookingConfirmation(flightNumber, departingAt, destination, flightAmount, origin);
-          });
-        });
+      if (fetchedCheap) {
+        displayOffers(cheapOffers, cheapOffersContainer, 'cheap');
       } else {
-        console.log("No offers found, retrying...");
-        await fetchOffers(); // Retry the request
+        cheapOffersContainer.innerHTML = "<p>No cheap offers found!</p>";
+      }
+
+      if (fetchedExpensive) {
+        displayOffers(expensiveOffers, offersContainer, 'expensive');
+      } else {
+        offersContainer.innerHTML = "<p>No expensive offers found!</p>";
+      }
+
+      // Fetch again if only one type of offer was found
+      while (!fetchedCheap || !fetchedExpensive) {
+        let additionalOffers = await fetchOffersWithRetry();
+
+        if (!fetchedCheap) {
+          let additionalCheapOffers = additionalOffers.filter(offer => parseFloat(offer.total_amount) < 800);
+          if (additionalCheapOffers.length > 0) {
+            cheapOffersContainer.innerHTML = ""; // Clear no offers message
+            displayOffers(additionalCheapOffers, cheapOffersContainer, 'cheap');
+            fetchedCheap = true;
+          } else {
+            cheapOffersContainer.innerHTML = "<p>No cheap offers found, retrying...</p>";
+          }
+        }
+
+        if (!fetchedExpensive) {
+          let additionalExpensiveOffers = additionalOffers.filter(offer => parseFloat(offer.total_amount) >= 800);
+          if (additionalExpensiveOffers.length > 0) {
+            offersContainer.innerHTML = ""; // Clear no offers message
+            displayOffers(additionalExpensiveOffers, offersContainer, 'expensive');
+            fetchedExpensive = true;
+          } else {
+            offersContainer.innerHTML = "<p>No expensive offers found, retrying...</p>";
+          }
+        }
       }
     } catch (error) {
-      console.error("Error fetching offers:", error);
-      offersContainer.innerHTML = `<p>Error fetching offers: ${error.message}</p>`;
+      offersContainer.innerHTML = `<p>Error loading offers: ${error.message}</p>`;
+      cheapOffersContainer.innerHTML = `<p>Error loading offers: ${error.message}</p>`;
     }
   }
 
-  fetchOffers();
+  // Function to display offers
+  function displayOffers(offers, container, type) {
+    container.innerHTML = ""; // Clear any existing content
+    offers.slice(0, maxFlights).forEach((offer, index) => {
+      offer.slices.forEach((slice) => {
+        slice.segments.forEach((segment) => {
+          const { operating_carrier, departing_at, operating_carrier_flight_number } = segment;
+          const { total_currency, total_amount } = offer;
+          const { origin, destination, duration } = segment;
+
+          const flightCard = document.createElement("div");
+          flightCard.classList.add("col-md-6", "col-xl-3", "mb-3", "mb-md-4", "pb-1");
+          flightCard.setAttribute("data-wow-delay", "0.1s");
+
+          flightCard.innerHTML = `
+              <div class="card transition-3d-hover shadow-hover-2 h-100">
+                  <div class="position-relative">
+                      <a href="../flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                          <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description"  >
+                      </a>
+                      <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                          <a href="../flights/flight-booking.html">
+                              <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                          </a>
+                          <span class="ml-2 text-white">${operating_carrier.name}</span>
+                      </div>
+                      <div class="position-absolute bottom-0 left-0 right-0">
+                          <div class="px-3 pb-2">
+                              <div class="text-white my-1"> 
+                                  <span class="mr-1 font-size-14">From</span>
+                                  <span class="font-weight-bold font-size-19">${origin.city_name}</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-body px-3 pt-2">
+                      <a href="../flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+                      <div class="font-size-14 text-gray-1">
+                          Oneway Flight
+                      </div>
+                  </div>
+                  
+              </div>
+          `;
+
+          container.appendChild(flightCard);
+        });
+      });
+    });
+  }
+
+  await fetchOffers();
 });
-
-
 
 
 
