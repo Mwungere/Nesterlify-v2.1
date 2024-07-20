@@ -283,7 +283,7 @@ async function createInvoiceAndGetId(formData) {
     price_currency: 'usd', // Currency in which price amount is specified
     order_id: formData.flightNumber,
     order_description: `Flight from ${formData.origin} to ${formData.destination}`,
-    pay_currency: 'btc', // Currency in which the customer will pay
+    pay_currency: formData.currency, // Currency in which the customer will pay
     ipn_callback_url: "https://nowpayments.io",
     success_url: "https://nowpayments.io",
     cancel_url: "https://nowpayments.io",
@@ -323,12 +323,12 @@ async function createInvoiceAndGetId(formData) {
 async function createPaymentByInvoice(invoiceId, formData) {
   const paymentData = {
     iid: invoiceId,
-    pay_currency: 'btc', // Currency in which the customer will pay
-    order_description: `Flight from ${formData.origin.city_name}  to ${formData.destination.city_name}`,
+    pay_currency: formData.currency, // Currency in which the customer will pay
+    order_description: `Flight from ${formData.origin.city_name} to ${formData.destination.city_name}`,
     customer_email: formData.email,
     payout_address: "bc1q76rq5503wz0jc03n3y5vc4xm600kshsarhwsvh", 
     payout_extra_id: null,
-    payout_currency: "btc"
+    payout_currency: formData.currency
   };
 
   try {
@@ -356,43 +356,6 @@ async function createPaymentByInvoice(invoiceId, formData) {
   }
 }
 
-function displayPaymentDetails(paymentData) {
-  const paymentModalContent = `
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Complete Your Payment</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Payment Address: ${paymentData.pay_address}</p>
-          <p>Amount: ${paymentData.pay_amount} ${paymentData.pay_currency}</p>
-          <p>Order Description: ${paymentData.order_description}</p>
-          <p>Please send the payment to the above address or scan the QR code below.</p>
-          <div id="qrcode"></div> <!-- QR code will be inserted here -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  const paymentModal = document.createElement('div');
-  paymentModal.classList.add('modal', 'fade');
-  paymentModal.innerHTML = paymentModalContent;
-
-  document.body.appendChild(paymentModal);
-
-  const bootstrapModal = new bootstrap.Modal(paymentModal);
-  bootstrapModal.show();
-
-  // Generate the QR code
-  const qrCodeData = `${paymentData.pay_address}?amount=${paymentData.pay_amount}`;
-  new QRCode(document.getElementById("qrcode"), qrCodeData);
-}
-
-
 function displayBookingConfirmation(flightNumber, departingAt, destination, flightAmount, origin) {
   const bookingForm = document.getElementById("bookingForm");
   console.log(destination, origin);
@@ -405,6 +368,8 @@ function displayBookingConfirmation(flightNumber, departingAt, destination, flig
     const gender = document.getElementById("gender").value.trim();
     const dob = document.getElementById("dob").value.trim();
     const passportNumber = document.getElementById("passportNumber").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const currency = document.getElementById("currency").value.trim(); // Get selected currency
 
     const formData = {
       fullName,
@@ -417,7 +382,8 @@ function displayBookingConfirmation(flightNumber, departingAt, destination, flig
       destination,
       flightAmount,
       origin,
-      email: document.getElementById("email").value.trim() // Add email to formData
+      email, // Add email to formData
+      currency // Add selected currency to formData
     };
 
     const modalContent = `
@@ -437,7 +403,7 @@ function displayBookingConfirmation(flightNumber, departingAt, destination, flig
             <p>Destination: ${formData.destination}</p>
             <p>Flight Number: ${formData.flightNumber}</p>
             <p>Departing At: ${formData.departingAt}</p>
-            
+            <p>Payment Currency: ${formData.currency}</p> <!-- Display selected currency -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="confirmReservation">Confirm Reservation</button>
@@ -480,5 +446,3 @@ function displayBookingConfirmation(flightNumber, departingAt, destination, flig
     });
   });
 }
-
-// Event listener for flight search form submission
