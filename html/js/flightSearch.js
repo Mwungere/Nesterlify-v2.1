@@ -356,6 +356,42 @@ async function createPaymentByInvoice(invoiceId, formData) {
   }
 }
 
+function displayPaymentDetails(paymentData) {
+  const paymentModalContent = `
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Complete Your Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Payment Address: ${paymentData.pay_address}</p>
+          <p>Amount: ${paymentData.pay_amount} ${paymentData.pay_currency}</p>
+          <p>Order Description: ${paymentData.order_description}</p>
+          <p>Please send the payment to the above address or scan the QR code below.</p>
+          <div id="qrcode"></div> <!-- QR code will be inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const paymentModal = document.createElement('div');
+  paymentModal.classList.add('modal', 'fade');
+  paymentModal.innerHTML = paymentModalContent;
+
+  document.body.appendChild(paymentModal);
+
+  const bootstrapModal = new bootstrap.Modal(paymentModal);
+  bootstrapModal.show();
+
+  // Generate the QR code
+  const qrCodeData = `${paymentData.pay_address}?amount=${paymentData.pay_amount}`;
+  new QRCode(document.getElementById("qrcode"), qrCodeData);
+}
+
 function displayBookingConfirmation(flightNumber, departingAt, destination, flightAmount, origin) {
   const bookingForm = document.getElementById("bookingForm");
   console.log(destination, origin);
