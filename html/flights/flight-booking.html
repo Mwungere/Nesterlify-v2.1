@@ -668,11 +668,69 @@
                 <div class="mb-3">
                     <label for="currency" class="form-label">Payment Currency</label>
                     <select class="form-select" id="currency" name="currency" required>
-                      <option value="" selected disabled>Choose...</option>
-                      <option value="btc">Bitcoin (BTC)</option>
-                      <option value="eth">Ethereum (ETH)</option>
-                      <option value="usdt">Tether (USDT)</option>
-                      <!-- Add more currencies as needed -->
+                        <option value="" selected disabled>Choose...</option>
+  
+                        <!-- Popular Coins -->
+                        <optgroup label="Popular Coins">
+                          <option value="btc">Bitcoin (BTC)</option>
+                          <option value="eth">Ethereum (ETH)</option>
+                          <option value="usdt">Tether (USDT)</option>
+                          <option value="ltc">Litecoin (LTC)</option>
+                          <option value="bch">Bitcoin Cash (BCH)</option>
+                          <option value="xrp">Ripple (XRP)</option>
+                          <option value="ada">Cardano (ADA)</option>
+                          <option value="xlm">Stellar Lumens (XLM)</option>
+                          <option value="link">Chainlink (LINK)</option>
+                          <option value="dot">Polkadot (DOT)</option>
+                        </optgroup>
+                        
+                        <!-- Stable Coins -->
+                        <optgroup label="Stable Coins">
+                          <option value="usdc">USD Coin (USDC)</option>
+                          <option value="dai">DAI (DAI)</option>
+                          <option value="busd">Binance USD (BUSD)</option>
+                          <option value="usdt_tron">Tether (USDT) (Tron)</option>
+                          <option value="usdt_eth">Tether (USDT) (Ethereum)</option>
+                          <option value="usdc_eth">USD Coin (USDC) (Ethereum)</option>
+                          <option value="usdt_bsc">Tether (USDT) (BSC)</option>
+                          <option value="usdt_solana">Tether (USDT) (Solana)</option>
+                        </optgroup>
+                        
+                        <!-- Other Currencies -->
+                        <optgroup label="Other Currencies">
+                          <option value="trx">Tron (TRX)</option>
+                          <option value="zec">Zcash (ZEC)</option>
+                          <option value="xmr">Monero (XMR)</option>
+                          <option value="neo">NEO (NEO)</option>
+                          <option value="etc">Ethereum Classic (ETC)</option>
+                          <option value="zil">Zilliqa (ZIL)</option>
+                          <option value="iota">IOTA (IOTA)</option>
+                          <option value="doge">Dogecoin (DOGE)</option>
+                          <option value="dash">Dash (DASH)</option>
+                          <option value="ont">Ontology (ONT)</option>
+                          <option value="vet">VeChain (VET)</option>
+                          <option value="icx">ICON (ICX)</option>
+                          <option value="bat">Basic Attention Token (BAT)</option>
+                          <option value="omg">OMG Network (OMG)</option>
+                          <option value="qtum">Qtum (QTUM)</option>
+                          <option value="zrx">0x (ZRX)</option>
+                          <option value="bnb">Binance Coin (BNB)</option>
+                          <option value="mkr">Maker (MKR)</option>
+                          <option value="bsv">Bitcoin SV (BSV)</option>
+                          <option value="leo">UNUS SED LEO (LEO)</option>
+                          <option value="cro">Crypto.com Coin (CRO)</option>
+                          <option value="knc">Kyber Network (KNC)</option>
+                          <option value="nano">Nano (NANO)</option>
+                          <option value="sc">Siacoin (SC)</option>
+                          <option value="rep">Augur (REP)</option>
+                          <option value="lsk">Lisk (LSK)</option>
+                          <option value="dgb">DigiByte (DGB)</option>
+                          <option value="grs">Groestlcoin (GRS)</option>
+                          <option value="xvg">Verge (XVG)</option>
+                          <option value="waves">Waves (WAVES)</option>
+                          <option value="strat">Stratis (STRAT)</option>
+                          <option value="kmd">Komodo (KMD)</option>
+                        </optgroup>
                     </select>
                   </div>
                   
@@ -938,7 +996,7 @@
     <!-- Custom JQuery -->
     <script src="../../assets/js/jquery/flights-list.js"></script>
 
-    <script src="../js/flightSearch.js"></script>
+    <script src="/html/js/flightSearch.js"></script>
 
 
     <!-- JS Global Compulsory -->

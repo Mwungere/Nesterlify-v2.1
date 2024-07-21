@@ -86,34 +86,38 @@ function displayFlightResults(results, container) {
           const { origin, destination, duration } = segment;
 
           flightCard.innerHTML = `
-                    <div class="card transition-3d-hover shadow-hover-2 h-100">
-                        <div class="position-relative">
-                            <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
-                                <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description"  >
-                            </a>
-                            <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                                <a href="/html/flights/flight-booking.html">
-                                    <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
-                                </a>
-                                <span class="ml-2 text-white">${operating_carrier.name}</span>
-                            </div>
-                            <div class="position-absolute bottom-0 left-0 right-0">
-                                <div class="px-3 pb-2">
-                                    <div class="text-white my-1"> 
-                                        <span class="mr-1 font-size-14">From</span>
-                                        <span class="font-weight-bold font-size-19">${origin.city_name}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body px-3 pt-2">
-                            <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
-                            <div class="font-size-14 text-gray-1">
-                                Oneway Flight
-                            </div>
-                        </div>
+    <div class="card transition-3d-hover shadow-hover-2 h-100">
+        <div class="position-relative">
+            <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description">
+            </a>
+            <div class="position-absolute top-0 right-0 end-0 p-2">
+                <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
+            </div>
+            <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                <a href="/html/flights/flight-booking.html">
+                    <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                </a>
+                <span class="ml-2 text-white">${operating_carrier.name}</span>
+            </div>
+            <div class="position-absolute bottom-0 left-0 right-0">
+                <div class="px-3 pb-2">
+                    <div class="text-white my-1"> 
+                        <span class="mr-1 font-size-14">From</span>
+                        <span class="font-weight-bold font-size-19">${origin.city_name}</span>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body px-3 pt-2">
+            <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+            <div class="font-size-14 text-gray-1">
+                Oneway Flight
+            </div>
+        </div>
+    </div>
 `;
+
 
           offersContainer.appendChild(flightCard);
         }
@@ -158,16 +162,35 @@ async function handleFlightSearch(event) {
 
   const fromWhere = document.getElementById('fromWhere').value.trim();
   const toWhere = document.getElementById('toWhere').value.trim();
-  const departDate = document.getElementById('departReturn').value.trim();
+  const departReturn = document.getElementById('departReturn').value.trim();
   const travelers = document.getElementById('travelers').value.split(' ');
   const numAdults = parseInt(travelers[0], 10);
   const cabinClass = travelers[1].toLowerCase();
-
+  console.log(departReturn);
+  
+  // Function to parse and format the date
+  function formatDate(dateStr) {
+      const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+      const date = new Date(`${month} ${day}, ${year}`);
+      const yearFormatted = date.getFullYear();
+      const monthFormatted = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JS
+      const dayFormatted = String(date.getDate()).padStart(2, '0');
+      return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+  }
+  
+  // Extract depart and return dates
+  const [departDateStr, returnDateStr] = departReturn.split('-').map(date => date.trim());
+  const departDate = formatDate(departDateStr);
+  const returnDate = formatDate(returnDateStr);
+  
+  console.log(departDate, returnDate);
+  
   // Determine trip type
   const tripType = document.querySelector('.tab-pane.active').id; // id of active tab
   let slices = [];
   let passengers = Array(numAdults).fill({ type: "adult" });
-  if (tripType === 'pills-one-example2') {
+  
+  if (tripType === 'pills-two-example2') {
       // One-way trip
       slices = [
           {
@@ -176,9 +199,8 @@ async function handleFlightSearch(event) {
               departure_date: departDate
           }
       ];
-  } else if (tripType === 'pills-two-example2') {
+  } else if (tripType === 'pills-one-example2') {
       // Round trip
-      const returnDate = document.getElementById('returnDate').value.trim();
       slices = [
           {
               origin: fromWhere,
@@ -202,7 +224,7 @@ async function handleFlightSearch(event) {
           // Additional slices for multi-city trips should be added here
       ];
   }
-
+  
   try {
       const offerRequestResponse = await fetch("https://nesterlify-server-6.onrender.com/api/offer_requests", {
           method: "POST",
@@ -321,15 +343,25 @@ async function createInvoiceAndGetId(formData) {
 }
 
 async function createPaymentByInvoice(invoiceId, formData) {
-  const paymentData = {
-    iid: invoiceId,
-    pay_currency: formData.currency, // Currency in which the customer will pay
-    order_description: `Flight from ${formData.origin.city_name} to ${formData.destination.city_name}`,
-    customer_email: formData.email,
-    payout_address: "bc1q76rq5503wz0jc03n3y5vc4xm600kshsarhwsvh", 
-    payout_extra_id: null,
-    payout_currency: formData.currency
-  };
+ // Define the payout addresses for different currencies
+ const payoutAddresses = {
+  btc: "bc1q76rq5503wz0jc03n3y5vc4xm600kshsarhwsvh",
+  eth: "0x2F67ba7d67e4Cf9DEe708fe0f5a329788C806265"
+};
+
+// Select the payout address based on the currency
+const payoutAddress = payoutAddresses[formData.currency.toLowerCase()];
+
+// Prepare the payment data
+const paymentData = {
+  iid: invoiceId,
+  pay_currency: formData.currency, // Currency in which the customer will pay
+  order_description: `Flight from ${formData.origin.city_name} to ${formData.destination.city_name}`,
+  customer_email: formData.email,
+  payout_address: payoutAddress, 
+  payout_extra_id: null,
+  payout_currency: formData.currency
+};
 
   try {
     const response = await fetch('https://api.nowpayments.io/v1/invoice-payment', {
@@ -477,7 +509,6 @@ function displayBookingConfirmation(flightNumber, departingAt, destination, flig
         bootstrapModal.hide();
       } catch (error) {
         console.error('Error confirming reservation:', error);
-        // Handle error and inform user
       }
     });
   });
