@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             flightCard.innerHTML = `
                 <div class="card transition-3d-hover shadow-hover-2 h-100">
                     <div class="position-relative">
-                        <a href="/homrflight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                        <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
                             <img class="card-img-top" src="${operating_carrier.logo_symbol_url}" alt="Image Description"  >
                         </a>
                         <div class="position-absolute top-0 left-0 pt-5 pl-3">
