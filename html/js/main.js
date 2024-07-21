@@ -165,37 +165,34 @@ document.addEventListener("DOMContentLoaded", async () => {
             flightCard.setAttribute("data-wow-delay", "0.1s");
   
             flightCard.innerHTML = `
-            <div class="card transition-3d-hover shadow-hover-2 h-100">
-                <div class="position-relative">
-                    <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
-                        <img class="card-img-top" src="../../assets/img/300x230/img27.jpg" alt="Image Description">
-                    </a>
-                    <div class="position-absolute top-0 right-0 end-0 p-2">
-                        <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
-                    </div>
-                    <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                        <a href="/html/flights/flight-booking.html">
-                            <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                <div class="card transition-3d-hover shadow-hover-2 h-100">
+                    <div class="position-relative">
+                        <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                            <img class="card-img-top" src="${operating_carrier.logo_symbol_url}" alt="Image Description"  >
                         </a>
-                        <span class="ml-2 text-white">${operating_carrier.name}</span>
-                    </div>
-                    <div class="position-absolute bottom-0 left-0 right-0">
-                        <div class="px-3 pb-2">
-                            <div class="text-white my-1"> 
-                                <span class="mr-1 font-size-14">From</span>
-                                <span class="font-weight-bold font-size-19">${origin.city_name}</span>
+                        <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                            <a href="/html/flights/flight-booking.html">
+                                <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                            </a>
+                            <span class="ml-2 text-white">${operating_carrier.name}</span>
+                        </div>
+                        <div class="position-absolute bottom-0 left-0 right-0">
+                            <div class="px-3 pb-2">
+                                <div class="text-white my-1"> 
+                                    <span class="mr-1 font-size-14">From</span>
+                                    <span class="font-weight-bold font-size-19">${origin.city_name}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-body px-3 pt-2">
-                    <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
-                    <div class="font-size-14 text-gray-1">
-                        Oneway Flight
+                    <div class="card-body px-3 pt-2">
+                        <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+                        <div class="font-size-14 text-gray-1">
+                            Oneway Flight
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
   
             container.appendChild(flightCard);
           });
@@ -267,6 +264,65 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   document.addEventListener("DOMContentLoaded", fetchAndDisplayOffers);
   
+
+  function displayOffers(offers, container, type) {
+    container.innerHTML = "";
+    offers.slice(0, maxFlights).forEach((offer, index) => {
+      offer.slices.forEach((slice) => {
+        slice.segments.forEach((segment) => {
+          const {
+            operating_carrier,
+            departing_at,
+            operating_carrier_flight_number,
+          } = segment;
+          const { total_currency, total_amount } = offer;
+          const { origin, destination, duration } = segment;
+
+          const flightCard = document.createElement("div");
+          flightCard.classList.add(
+            "col-md-6",
+            "col-xl-3",
+            "mb-3",
+            "mb-md-4",
+            "pb-1"
+          );
+          flightCard.setAttribute("data-wow-delay", "0.1s");
+
+          flightCard.innerHTML = `
+              <div class="card transition-3d-hover shadow-hover-2 h-100">
+                  <div class="position-relative">
+                      <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                          <img class="card-img-top" src="${operating_carrier.logo_symbol_url}" alt="Image Description"  >
+                      </a>
+                      <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                          <a href="/html/flights/flight-booking.html">
+                              <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                          </a>
+                          <span class="ml-2 text-white">${operating_carrier.name}</span>
+                      </div>
+                      <div class="position-absolute bottom-0 left-0 right-0">
+                          <div class="px-3 pb-2">
+                              <div class="text-white my-1"> 
+                                  <span class="mr-1 font-size-14">From</span>
+                                  <span class="font-weight-bold font-size-19">${origin.city_name}</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="card-body px-3 pt-2">
+                      <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+                      <div class="font-size-14 text-gray-1">
+                          Oneway Flight
+                      </div>
+                  </div>
+              </div>
+          `;
+
+          container.appendChild(flightCard);
+        });
+      });
+    });
+  }
 
   await fetchAndDisplayOffers();
 });
