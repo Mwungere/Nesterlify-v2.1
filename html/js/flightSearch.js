@@ -89,7 +89,7 @@ function displayFlightResults(results, container) {
     <div class="card transition-3d-hover shadow-hover-2 h-100">
         <div class="position-relative">
             <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
-                <img class="card-img-top" src="../../assets/img/300x230/img27.jpeg" alt="Image Description">
+                <img class="card-img-top" src="../../assets/img/300x230/img27.jpg" alt="Image Description">
             </a>
             <div class="position-absolute top-0 right-0 end-0 p-2">
                 <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
