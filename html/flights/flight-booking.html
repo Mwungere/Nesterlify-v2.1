@@ -12,6 +12,14 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../favicon.png">
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+<!-- Select2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+
+
     <!-- Google Fonts -->
     <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
@@ -587,7 +595,7 @@
                         </div>
 
 
-                        <div
+    <div
         class="modal fade"
         id="bookingFormModal"
         tabindex="-1"
@@ -664,75 +672,6 @@
                     required
                   />
                 </div>
-
-                <div class="mb-3">
-                    <label for="currency" class="form-label">Payment Currency</label>
-                    <select class="form-select" id="currency" name="currency" required>
-                        <option value="" selected disabled>Choose...</option>
-  
-                        <!-- Popular Coins -->
-                        <optgroup label="Popular Coins">
-                          <option value="btc">Bitcoin (BTC)</option>
-                          <option value="eth">Ethereum (ETH)</option>
-                          <option value="usdt">Tether (USDT)</option>
-                          <option value="ltc">Litecoin (LTC)</option>
-                          <option value="bch">Bitcoin Cash (BCH)</option>
-                          <option value="xrp">Ripple (XRP)</option>
-                          <option value="ada">Cardano (ADA)</option>
-                          <option value="xlm">Stellar Lumens (XLM)</option>
-                          <option value="link">Chainlink (LINK)</option>
-                          <option value="dot">Polkadot (DOT)</option>
-                        </optgroup>
-                        
-                        <!-- Stable Coins -->
-                        <optgroup label="Stable Coins">
-                          <option value="usdc">USD Coin (USDC)</option>
-                          <option value="dai">DAI (DAI)</option>
-                          <option value="busd">Binance USD (BUSD)</option>
-                          <option value="usdt_tron">Tether (USDT) (Tron)</option>
-                          <option value="usdt_eth">Tether (USDT) (Ethereum)</option>
-                          <option value="usdc_eth">USD Coin (USDC) (Ethereum)</option>
-                          <option value="usdt_bsc">Tether (USDT) (BSC)</option>
-                          <option value="usdt_solana">Tether (USDT) (Solana)</option>
-                        </optgroup>
-                        
-                        <!-- Other Currencies -->
-                        <optgroup label="Other Currencies">
-                          <option value="trx">Tron (TRX)</option>
-                          <option value="zec">Zcash (ZEC)</option>
-                          <option value="xmr">Monero (XMR)</option>
-                          <option value="neo">NEO (NEO)</option>
-                          <option value="etc">Ethereum Classic (ETC)</option>
-                          <option value="zil">Zilliqa (ZIL)</option>
-                          <option value="iota">IOTA (IOTA)</option>
-                          <option value="doge">Dogecoin (DOGE)</option>
-                          <option value="dash">Dash (DASH)</option>
-                          <option value="ont">Ontology (ONT)</option>
-                          <option value="vet">VeChain (VET)</option>
-                          <option value="icx">ICON (ICX)</option>
-                          <option value="bat">Basic Attention Token (BAT)</option>
-                          <option value="omg">OMG Network (OMG)</option>
-                          <option value="qtum">Qtum (QTUM)</option>
-                          <option value="zrx">0x (ZRX)</option>
-                          <option value="bnb">Binance Coin (BNB)</option>
-                          <option value="mkr">Maker (MKR)</option>
-                          <option value="bsv">Bitcoin SV (BSV)</option>
-                          <option value="leo">UNUS SED LEO (LEO)</option>
-                          <option value="cro">Crypto.com Coin (CRO)</option>
-                          <option value="knc">Kyber Network (KNC)</option>
-                          <option value="nano">Nano (NANO)</option>
-                          <option value="sc">Siacoin (SC)</option>
-                          <option value="rep">Augur (REP)</option>
-                          <option value="lsk">Lisk (LSK)</option>
-                          <option value="dgb">DigiByte (DGB)</option>
-                          <option value="grs">Groestlcoin (GRS)</option>
-                          <option value="xvg">Verge (XVG)</option>
-                          <option value="waves">Waves (WAVES)</option>
-                          <option value="strat">Stratis (STRAT)</option>
-                          <option value="kmd">Komodo (KMD)</option>
-                        </optgroup>
-                    </select>
-                  </div>
                   
                 <button type="submit" class="btn btn-primary" id="nextButton">
                   Next
@@ -742,6 +681,71 @@
           </div>
         </div>
       </div>
+
+
+<!-- Currency Selection Modal -->
+<div class="modal fade" id="currencySelectionModal" tabindex="-1" aria-labelledby="currencySelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="currencySelectionModalLabel">Select Payment Currency</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="currencySearch" class="form-label">Payment Currency</label>
+            <input type="text" class="form-control" id="currencySearch" placeholder="Start typing to search...">
+            <div id="currencyDropdown" class="dropdown-menu w-100">
+              <!-- Dynamically populated options will go here -->
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="confirmCurrencyButton">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+      
+  
+  <!-- Booking Confirmation Modal -->
+  <div class="modal fade" id="bookingConfirmationModal" tabindex="-1" aria-labelledby="bookingConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookingConfirmationModalLabel">Booking Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Booking confirmation details go here -->
+          <button type="button" class="btn btn-primary" id="confirmBookingButton">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Payment Modal -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentModalLabel">Complete Your Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Payment Address: <span id="paymentAddress"></span></p>
+          <p>Amount: <span id="paymentAmount"></span></p>
+          <p>Order Description: <span id="orderDescription"></span></p>
+          <p>Please send the payment to the above address or scan the QR code below.</p>
+          <div id="qrcode"></div> <!-- QR code will be inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
                     </div>
                     <!-- <div class="text-center text-md-left font-size-14 mb-3 text-lh-1">Showing 1–15</div>
@@ -1006,7 +1010,11 @@
     <script src="../../assets/vendor/bootstrap/bootstrap.min.js"></script>
  
     <!-- JS Implementing Plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
     <script src="../../assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
