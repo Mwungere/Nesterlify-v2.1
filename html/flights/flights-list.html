@@ -247,7 +247,7 @@
                                                     <input id="departReturn"
                                                         class="js-range-datepicker  font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
                                                         type="date" data-rp-wrapper="#datepickerWrapperFromOne"
-                                                        data-rp-type="range" data-rp-date-format="M d /Y" data-rp-default-date='["Jul 20 / 2024", "Jul 21 / 2024"]'>
+                                                        data-rp-type="range" data-rp-date-format="M d /Y">
                                                 </div>
                                                 <!-- End Datepicker -->
                                             </div>
@@ -318,7 +318,7 @@
                                                         class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
                                                         type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
                                                         data-rp-type="range" data-rp-date-format="M d / Y"
-                                                        data-rp-default-date='["Jul 20 / 2024", "Jul 21 / 2024"]'>
+                                                        >
                                                 </div>
                                                 <!-- End Datepicker -->
                                             </div>
@@ -389,7 +389,7 @@
                                                         class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
                                                         type="date" data-rp-wrapper="#datepickerWrapperFromtwo"
                                                         data-rp-type="range" data-rp-date-format="M d / Y"
-                                                        data-rp-default-date='["Jul 20 / 2024", "Jul 21 / 2024"]'>
+                                                        >
                                                 </div>
                                                 <!-- End Datepicker -->
                                             </div>
@@ -1181,6 +1181,35 @@
             // initialization of go to
             $.HSCore.components.HSGoTo.init('.js-go-to');
         });
+
+
+                // Function to format date as "M d / Y"
+        function formatDate(date) {
+            const options = { month: 'short', day: 'numeric', year: 'numeric' };
+            return new Intl.DateTimeFormat('en-US', options).format(date).replace(',', '');
+        }
+
+        // Function to get the default dates (today and tomorrow)
+        function getDefaultDates() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+            
+            const todayFormatted = formatDate(today);
+            const tomorrowFormatted = formatDate(tomorrow);
+            
+            return [todayFormatted, tomorrowFormatted];
+        }
+
+        // Set the default dates as data-rp-default-date attribute
+        function setDefaultDates() {
+            const datePicker = document.getElementById('departReturn');
+            const defaultDates = getDefaultDates();
+            datePicker.setAttribute('data-rp-default-date', JSON.stringify(defaultDates));
+        }
+
+        // Call the function to set the default dates
+        setDefaultDates();
     </script>
 </body>
 
