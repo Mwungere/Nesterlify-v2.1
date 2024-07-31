@@ -140,115 +140,6 @@ function calculateReturnDate(startDate, daysToAdd) {
   return date.toISOString().split("T")[0];
 }
 
-document
-  .getElementById("searchingForm")
-  .addEventListener("submit", handleFlightSearch);
-
-// Function to display flight search results
-function displayFlightResults(results, container) {
-  const offersContainer = container;
-  offersContainer.innerHTML = ""; // Clear existing offers
-
-  const displayedCarriers = new Set();
-
-  results.forEach((offer, index) => {
-    offer.slices.forEach((slice) => {
-      slice.segments.forEach((segment) => {
-        const {
-          operating_carrier,
-          departing_at,
-          operating_carrier_flight_number,
-        } = segment;
-
-        if (
-          !displayedCarriers.has(operating_carrier_flight_number) &&
-          !displayedCarriers.has(departing_at)
-        ) {
-          displayedCarriers.add(operating_carrier_flight_number);
-          displayedCarriers.add(departing_at);
-
-          const flightCard = document.createElement("div");
-          flightCard.classList.add("col-lg-4", "col-md-6", "wow", "fadeInUp");
-          flightCard.setAttribute("data-wow-delay", "0.1s");
-
-          const { total_currency, total_amount } = offer;
-          const { origin, destination, duration } = segment;
-
-          flightCard.innerHTML = `
-    <div class="card transition-3d-hover shadow-hover-2 h-100">
-        <div class="position-relative">
-            <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
-                <img class="card-img-top" src="../../assets/img/300x230/img27.jpg" alt="Image Description">
-            </a>
-            <div class="position-absolute top-0 right-0 end-0 p-2">
-                <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
-            </div>
-            <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                <a href="/html/flights/flight-booking.html">
-                    <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
-                </a>
-                <span class="ml-2 text-white">${operating_carrier.name}</span>
-            </div>
-            <div class="position-absolute bottom-0 left-0 right-0">
-                <div class="px-3 pb-2">
-                    <div class="text-white my-1"> 
-                        <span class="mr-1 font-size-14">From</span>
-                        <span class="font-weight-bold font-size-19">${origin.city_name}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-body px-3 pt-2">
-            <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
-            <div class="font-size-14 text-gray-1">
-                Oneway Flight
-            </div>
-        </div>
-    </div>
-`;
-
-          offersContainer.appendChild(flightCard);
-        }
-      });
-    });
-  });
-
-  // Attach event listeners to "View Detail" buttons
-  document.querySelectorAll(".view-detail").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const offerIndex = event.target.getAttribute("data-offer-index");
-      showFlightDetails(results[offerIndex]);
-    });
-  });
-
-  // Attach event listeners to "Book Now" buttons in cards
-  document.querySelectorAll(".book-now").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const flightNumber = event.target.getAttribute("data-flight-number");
-      const departingAt = event.target.getAttribute("data-departing-at");
-      const origin = event.target.getAttribute("data-origin");
-      const flightAmount = event.target.getAttribute("data-amount");
-      const destination = event.target.getAttribute("data-destination");
-
-      const bookingFormModal = document.getElementById("bookingFormModal");
-
-      const bookingFormModalInstance = new bootstrap.Modal(bookingFormModal, {
-        backdrop: "static",
-        keyboard: false,
-      });
-      bookingFormModalInstance.show();
-
-      // Pass flightNumber and departingAt to displayBookingConfirmation
-      displayBookingConfirmation(
-        flightNumber,
-        departingAt,
-        destination,
-        flightAmount,
-        origin
-      );
-    });
-  });
-}
 
 // Function to handle flight search
 async function handleFlightSearch(event) {
@@ -372,6 +263,119 @@ async function handleFlightSearch(event) {
     alert("Error fetching offers. Please try again later.");
   }
 }
+
+
+
+document
+  .getElementById("searchingForm")
+  .addEventListener("submit", handleFlightSearch);
+
+// Function to display flight search results
+function displayFlightResults(results, container) {
+  const offersContainer = container;
+  offersContainer.innerHTML = ""; // Clear existing offers
+
+  const displayedCarriers = new Set();
+
+  results.forEach((offer, index) => {
+    offer.slices.forEach((slice) => {
+      slice.segments.forEach((segment) => {
+        const {
+          operating_carrier,
+          departing_at,
+          operating_carrier_flight_number,
+        } = segment;
+
+        if (
+          !displayedCarriers.has(operating_carrier_flight_number) &&
+          !displayedCarriers.has(departing_at)
+        ) {
+          displayedCarriers.add(operating_carrier_flight_number);
+          displayedCarriers.add(departing_at);
+
+          const flightCard = document.createElement("div");
+          flightCard.classList.add("col-lg-4", "col-md-6", "wow", "fadeInUp");
+          flightCard.setAttribute("data-wow-delay", "0.1s");
+
+          const { total_currency, total_amount } = offer;
+          const { origin, destination, duration } = segment;
+
+          flightCard.innerHTML = `
+    <div class="card transition-3d-hover shadow-hover-2 h-100">
+        <div class="position-relative">
+            <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+                <img class="card-img-top" src="../../assets/img/300x230/img27.jpg" alt="Image Description">
+            </a>
+            <div class="position-absolute top-0 right-0 end-0 p-2">
+                <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
+            </div>
+            <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                <a href="/html/flights/flight-booking.html">
+                    <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
+                </a>
+                <span class="ml-2 text-white">${operating_carrier.name}</span>
+            </div>
+            <div class="position-absolute bottom-0 left-0 right-0">
+                <div class="px-3 pb-2">
+                    <div class="text-white my-1"> 
+                        <span class="mr-1 font-size-14">From</span>
+                        <span class="font-weight-bold font-size-19">${origin.city_name}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body px-3 pt-2">
+            <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+            <div class="font-size-14 text-gray-1">
+                Oneway Flight
+            </div>
+        </div>
+    </div>
+`;
+
+          offersContainer.appendChild(flightCard);
+        }
+      });
+    });
+  });
+
+  // Attach event listeners to "View Detail" buttons
+  document.querySelectorAll(".view-detail").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const offerIndex = event.target.getAttribute("data-offer-index");
+      showFlightDetails(results[offerIndex]);
+    });
+  });
+
+  // Attach event listeners to "Book Now" buttons in cards
+  document.querySelectorAll(".book-now").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const flightNumber = event.target.getAttribute("data-flight-number");
+      const departingAt = event.target.getAttribute("data-departing-at");
+      const origin = event.target.getAttribute("data-origin");
+      const flightAmount = event.target.getAttribute("data-amount");
+      const destination = event.target.getAttribute("data-destination");
+
+      const bookingFormModal = document.getElementById("bookingFormModal");
+
+      const bookingFormModalInstance = new bootstrap.Modal(bookingFormModal, {
+        backdrop: "static",
+        keyboard: false,
+      });
+      bookingFormModalInstance.show();
+
+      // Pass flightNumber and departingAt to displayBookingConfirmation
+      displayBookingConfirmation(
+        flightNumber,
+        departingAt,
+        destination,
+        flightAmount,
+        origin
+      );
+    });
+  });
+}
+
 
 // Function to handle booking form submission and send booking data
 async function handleBooking(formData) {
