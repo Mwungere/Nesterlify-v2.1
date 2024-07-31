@@ -266,10 +266,9 @@ async function handleFlightSearch(event) {
 
 
 
-document
-  .getElementById("searchingForm")
-  .addEventListener("submit", handleFlightSearch);
-
+document.getElementById("roundTripForm").addEventListener("submit", handleFlightSearch);
+document.getElementById("oneWayForm").addEventListener("submit", handleFlightSearch);
+document.getElementById("multiCityForm").addEventListener("submit", handleFlightSearch);
 // Function to display flight search results
 function displayFlightResults(results, container) {
   const offersContainer = container;
