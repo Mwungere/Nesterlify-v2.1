@@ -707,6 +707,7 @@ function displayBookingConfirmation(
         );
         confirmReservationButton.addEventListener("click", async () => {
           try {
+
             bootstrapModal.hide()
             // Create the invoice and get its ID and payment address
             await createPaymentByInvoice(formData);
