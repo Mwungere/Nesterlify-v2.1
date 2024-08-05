@@ -1,6 +1,6 @@
 async function searchStays() {
   try {
-    const response = await fetch('http://localhost:3000/api/search-stays', {
+    const response = await fetch('https://nesterlify-server-6.onrender.com/api/search-stays', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
