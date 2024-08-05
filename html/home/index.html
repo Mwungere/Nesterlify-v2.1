@@ -220,7 +220,7 @@
                     <li>
                       <a
                         class="nav-link u-header__sub-menu-nav-link"
-                        href="../hotels/hotel-list.html"
+                        href="/html/hotels/hotel-list.html"
                         >Hotels</a
                       >
                     </li>
@@ -392,31 +392,41 @@
                       </div>
 
                       <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0">
-                        <!-- Input -->
-                        <span
-                          class="d-block text-gray-1 text-left font-weight-normal mb-0"
-                          >Depart</span
-                        >
+                        <!-- Input for Depart Date -->
+                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Depart</span>
                         <div class="border-bottom-1">
-                          <div
-                            id="datepickerWrapperFromOne"
-                            class="u-datepicker input-group"
-                          >
+                          <div id="datepickerWrapperFromOne" class="u-datepicker input-group">
                             <div class="input-group-prepend">
                               <span class="d-flex align-items-center mr-2">
-                                <i
-                                  class="flaticon-calendar text-primary font-weight-semi-bold"
-                                ></i>
+                                <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
                               </span>
                             </div>
                             <input
-                              id="departReturn"
+                              id="departDate"
                               class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0"
                               type="date"
-                              data-rp-wrapper="#datepickerWrapperFromOne"
-                              data-rp-type="range"
-                              data-rp-date-format="M d /Y"
-                              />
+                            />
+                          </div>
+                          <!-- End Datepicker -->
+                        </div>
+                        <!-- End Input -->
+                      </div>
+                      
+                      <div class="col-sm-12 col-lg-6 col-xl-3 mb-4 mb-xl-0">
+                        <!-- Input for Return Date -->
+                        <span class="d-block text-gray-1 text-left font-weight-normal mb-0">Return</span>
+                        <div class="border-bottom-1">
+                          <div id="datepickerWrapperFromTwo" class="u-datepicker input-group">
+                            <div class="input-group-prepend">
+                              <span class="d-flex align-items-center mr-2">
+                                <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                              </span>
+                            </div>
+                            <input
+                              id="returnDate"
+                              class="js-range-datepicker font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0"
+                              type="date"
+                            />
                           </div>
                           <!-- End Datepicker -->
                         </div>
@@ -2050,38 +2060,31 @@
         $.HSCore.components.HSGoTo.init(".js-go-to");
       });
 
-      // Function to format date as "M d / Y"
-      function formatDate(date) {
-        const options = { month: "short", day: "numeric", year: "numeric" };
-        return new Intl.DateTimeFormat("en-US", options)
-          .format(date)
-          .replace(",", "");
-      }
-
       // Function to get the default dates (today and tomorrow)
-      function getDefaultDates() {
-        const today = new Date();
-        const tomorrow = new Date(today);
-        tomorrow.setDate(today.getDate() + 1);
+function getDefaultDates() {
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
 
-        const todayFormatted = formatDate(today);
-        const tomorrowFormatted = formatDate(tomorrow);
+  const todayFormatted = formatDate(today);
+  const tomorrowFormatted = formatDate(tomorrow);
 
-        return [todayFormatted, tomorrowFormatted];
-      }
+  return [todayFormatted, tomorrowFormatted];
+}
 
-      // Set the default dates as data-rp-default-date attribute
-      function setDefaultDates() {
-        const datePicker = document.getElementById("departReturn");
-        const defaultDates = getDefaultDates();
-        datePicker.setAttribute(
-          "data-rp-default-date",
-          JSON.stringify(defaultDates)
-        );
-      }
+// Set the default dates as data-rp-default-date attribute
+function setDefaultDates() {
+  const [todayFormatted, tomorrowFormatted] = getDefaultDates();
+  const departDatePicker = document.getElementById("departDate");
+  const returnDatePicker = document.getElementById("returnDate");
 
-      // Call the function to set the default dates
-      setDefaultDates();
+  // Set default value for depart and return date inputs
+  departDatePicker.value = todayFormatted;
+  returnDatePicker.value = tomorrowFormatted;
+}
+
+// Call the function to set the default dates
+setDefaultDates();
     </script>
   </body>
 </html>

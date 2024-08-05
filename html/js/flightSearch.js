@@ -255,7 +255,8 @@ async function handleFlightSearch(event) {
 
   const fromWhere = document.getElementById("fromWhere").value.trim();
   const toWhere = document.getElementById("toWhere").value.trim();
-  const departReturn = document.getElementById("departReturn").value.trim();
+  const departDateStr = document.getElementById("departDate").value.trim()
+  const returnDateStr = document.getElementById("returnDate").value.trim();
   const travelers = document.getElementById("travelers").value.split(" ");
   const numAdults = parseInt(travelers[0], 10);
   const cabinClass = travelers[1].toLowerCase();
@@ -271,10 +272,7 @@ async function handleFlightSearch(event) {
     return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
   }
 
-  // Extract depart and return dates
-  const [departDateStr, returnDateStr] = departReturn
-    .split("-")
-    .map((date) => date.trim());
+
   const departDate = formatDate(departDateStr);
   const returnDate = formatDate(returnDateStr);
 
