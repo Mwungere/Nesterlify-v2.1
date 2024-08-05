@@ -14,8 +14,8 @@ async function searchStays() {
             latitude: 51.5071
           }
         },
-        check_in_date: '2024-08-03',
-        check_out_date: '2024-08-10',
+        check_in_date: '2024-08-10',
+        check_out_date: '2024-08-20',
         guests: [{ type: 'adult' }, { type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' }]
       })
     });
