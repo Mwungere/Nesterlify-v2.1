@@ -1,22 +1,22 @@
-async function searchStays() {
+async function searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guests) {
   try {
-    const response = await fetch('https://nesterlify-server-6.onrender.com/api/search-stays', {
+    const response = await fetch('http://localhost:3000/api/search-stays', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        rooms: 6,
+        rooms: rooms,
         location: {
-          radius: 5,
+          radius: 30,
           geographic_coordinates: {
-            longitude: -0.1416,
-            latitude: 51.5071
+            longitude: longitude,
+            latitude: latitude
           }
         },
-        check_in_date: '2024-08-10',
-        check_out_date: '2024-08-20',
-        guests: [{ type: 'adult' }, { type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' }]
+        check_in_date: checkInDate,
+        check_out_date: checkOutDate,
+        guests: guests
       })
     });
 
@@ -32,12 +32,93 @@ async function searchStays() {
   }
 }
 
+async function getCoordinates(city, country) {
+  const apiKey = 'a4932359feec4dee854cd7699665b2ce';
+  const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}+${country}&key=${apiKey}`);
+  const data = await response.json();
+  if (data.results.length > 0) {
+    return data.results[0].geometry;
+  } else {
+    throw new Error('Location not found');
+  }
+}
+
+function generateGuestsArray(guestsCount) {
+  const guestsArray = [];
+  for (let i = 0; i < guestsCount; i++) {
+    guestsArray.push({ type: 'adult' });
+  }
+  return guestsArray;
+}
+
+
+
+document.getElementById('searchingStaysForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  console.log('submitted');
+  const location = document.getElementById('location').value.trim();
+  const [city, country] = location.split(',').map(part=> part.trim());
+  const rooms = document.getElementById('rooms').value.trim();
+  const checkInOut = document.getElementById('checkInOut').value.trim();
+  const guests = document.getElementById('guests').value.trim()
+  console.log(checkInOut);
+
+
+  // Function to parse and format the date
+  function formatDate(dateStr) {
+    const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+    const date = new Date(`${month} ${day}, ${year}`);
+    const yearFormatted = date.getFullYear();
+    const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
+    const dayFormatted = String(date.getDate()).padStart(2, "0");
+    return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+  }
+
+  // Extract depart and return dates
+  const [checkInDateStr, checkOutDateStr] = checkInOut.split("-").map((date) => date.trim());
+  const checkInDate = formatDate(checkInDateStr);
+  const checkOutDate = formatDate(checkOutDateStr);
+
+  console.log(checkInDate, checkOutDate);
+
+  const coordinates = await getCoordinates(city, country);
+  const latitude = coordinates.lat;
+  const longitude = coordinates.lng;
+  console.log(latitude, longitude);
+  const guestsArray = generateGuestsArray(guests);
+  const response = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
+  console.log(response);
+
+
+})
+
+
+// Function to get tomorrow's date in YYYY-MM-DD format
+function getTomorrowDate() {
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  return tomorrow.toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
+}
+
+// Function to get the date five days after tomorrow in YYYY-MM-DD format
+function getDateAfterFiveDays(tomorrowDate) {
+  const tomorrow = new Date(tomorrowDate);
+  const fiveDaysLater = new Date(tomorrow);
+  fiveDaysLater.setDate(tomorrow.getDate() + 5);
+  return fiveDaysLater.toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
+}
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   const offersContainer = document.getElementById('stays-container');
   const maxRooms = 15; // Adjust the maximum number of rooms to display
 
   try {
-    const results = await searchStays(); // Fetch the search results
+    const checkInDate = getTomorrowDate();
+    const checkOutDate = getDateAfterFiveDays(checkInDate);
+
+    const results = await searchStays(3, -0.1416, 51.5071,  checkInDate, checkOutDate, [{ type: 'adult' }, { type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' }]) // Fetch the search results
 
     offersContainer.innerHTML = '';
 
