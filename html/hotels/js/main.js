@@ -89,6 +89,10 @@ async function handleStaysSearch(event){
   const response = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
   console.log(response);
 
+  // Store the results in localStorage and redirect
+  localStorage.setItem('searchResults', JSON.stringify(response));
+  window.location.href = 'hotel-list.html';
+
 }
 
 // Function to get tomorrow's date in YYYY-MM-DD format
@@ -110,39 +114,45 @@ function getDateAfterFiveDays(tomorrowDate) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   const offersContainer = document.getElementById('stays-container');
-  const maxRooms = 15; // Adjust the maximum number of rooms to display
+  const maxRooms = 15;
 
-  try {
-    const checkInDate = getTomorrowDate();
-    const checkOutDate = getDateAfterFiveDays(checkInDate);
+  let results = JSON.parse(localStorage.getItem('searchResults'));
 
-    const results = await searchStays(3, -0.1416, 51.5071,  checkInDate, checkOutDate, [{ type: 'adult' }, { type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' },{ type: 'adult' }]) // Fetch the search results
+  if (!results) {
+    // If no results in localStorage, fetch new results
+    try {
+      const checkInDate = getTomorrowDate();
+      const checkOutDate = getDateAfterFiveDays(checkInDate);
 
-    offersContainer.innerHTML = '';
+      results = await searchStays(3, -0.1416, 51.5071, checkInDate, checkOutDate, [{ type: 'adult' }, { type: 'adult' }, { type: 'adult' }, { type: 'adult' }, { type: 'adult' }, { type: 'adult' }]);
 
-    if (results && results.length > 0) {
-      // Store all stays in localStorage
-      localStorage.setItem('allStays', JSON.stringify(results));
-
-      results.slice(0, maxRooms).forEach((accommodation, index) => {
-        const roomCard = createRoomCard(accommodation, index); // Create a room card based on the returned data
-        offersContainer.appendChild(roomCard);
-      });
-
-      // Add event listeners to the stay cards
-      document.querySelectorAll('.stay-card a').forEach((link, index) => {
-        link.addEventListener('click', function(event) {
-          localStorage.setItem('selectedStayIndex', index);
-        });
-      });
-    } else {
-      offersContainer.innerHTML = '<p>No accommodations found!</p>';
+      // Store the results in localStorage for future use
+      localStorage.setItem('searchResults', JSON.stringify(results));
+    } catch (error) {
+      console.error('Error fetching accommodations:', error);
+      offersContainer.innerHTML = `<p>Error fetching accommodations: ${error.message}</p>`;
+      return;
     }
-  } catch (error) {
-    console.error('Error fetching accommodations:', error);
-    offersContainer.innerHTML = `<p>Error fetching accommodations: ${error.message}</p>`;
+  }
+
+  offersContainer.innerHTML = '';
+
+  if (results && results.length > 0) {
+    results.slice(0, maxRooms).forEach((accommodation, index) => {
+      const roomCard = createRoomCard(accommodation, index);
+      offersContainer.appendChild(roomCard);
+    });
+
+    document.querySelectorAll('.stay-card a').forEach((link, index) => {
+      link.addEventListener('click', function(event) {
+        localStorage.setItem('selectedStayIndex', index);
+      });
+    });
+  } else {
+    offersContainer.innerHTML = '<p>No accommodations found!</p>';
   }
 });
+
 
 // Function to create a room card
 function createRoomCard(stay, index) {

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             reviewsRatio.innerText = `${review_score}/10`
             
             const fromAmout = document.getElementById('from-amount');
-            fromAmout.innerText = `£${cheapest_rate_total_amount}`
+            fromAmout.innerText = `${cheapest_rate_currency} ${cheapest_rate_total_amount}`
 
             // Populate rating stars
             const ratingStarsElem = document.getElementById('rating-stars');
