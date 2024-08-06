@@ -164,33 +164,32 @@
                                 <div class="mb-6 w-100">
                                     <div class="pb-4 mb-2">
                                         <div class="sidebar border border-color-1 rounded-xs">
-                                            <div class="p-4 mb-1">
+                                            <form class="js-validate p-4 mb-1" id="searchingForm" onsubmit="handleStaysSearchOnHotelList(event)">
                                                 <!-- Input -->
                                                 <span class="d-block text-gray-1  font-weight-normal mb-0 text-left">Destination</span>
                                                 <div class="mb-4">
                                                     <div class="input-group border-bottom border-width-2 border-color-1">
                                                         <i class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold font-size-22"></i>
-                                                      <input type="text" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="City, Country" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
+                                                      <input id="location" name="location" type="text" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="City, Country" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
                                                     </div>
                                                 </div>
                                                 <!-- End Input -->
                                                 <!-- Input -->
                                                 <span class="d-block text-gray-1 font-weight-normal mb-0 text-left">Check In - Out</span>
                                                 <div class="mb-4">
-                                                    <div class="border-bottom border-width-2 border-color-1">
-                                                        <div id="datepickerWrapperPick" class="u-datepicker input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="d-flex align-items-center mr-2 font-size-21">
-                                                                  <i class="flaticon-calendar text-primary font-weight-semi-bold"></i>
-                                                                </span>
-                                                            </div>
-                                                            <input class="js-range-datepicker font-weight-medium font-size-15 ml-1 shadow-none form-control hero-form bg-transparent border-0 flatpickr-input p-0" type="text" placeholder="July 7/2019" aria-label="July 7/2019"
-                                                            data-rp-wrapper="#datepickerWrapperPick"
-                                                            data-rp-type="range"
-                                                            data-rp-date-format="M d / Y"
-                                                            data-rp-default-date='["Jul 7 / 2020", "Aug 25 / 2020"]'>
+                                                    <div id="datepickerWrapperFromFour" class="u-datepicker input-group border-bottom border-width-2 border-color-1">
+                                                        <div class="input-group-prepend">
+                                                            <span class="d-flex align-items-center mr-2">
+                                                                <i
+                                                                    class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                            </span>
                                                         </div>
-                                                        <!-- End Datepicker -->
+                                                        <input 
+                                                            id="checkInOut"
+                                                            class="js-range-datepicker  font-size-lg-16 shadow-none font-weight-bold form-control hero-form bg-transparent  border-0"
+                                                            type="date" data-rp-wrapper="#datepickerWrapperFromFour"
+                                                            aria-label="Check-In - Check-Out" 
+                                                            data-rp-type="range" data-rp-date-format="M d /Y" placeholder="d4er">
                                                     </div>
                                                 </div>
                                                 <!-- End Input -->
@@ -199,8 +198,10 @@
                                                 <span class="d-block text-gray-1  font-weight-normal mb-0 text-left">Rooms</span>
                                                 <div class="mb-4">
                                                     <div class="input-group border-bottom border-width-2 border-color-1">
-                                                        <i class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold font-size-22"></i>
-                                                      <input type="number" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="number of rooms" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
+                                                        <i
+                                                        class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold"
+                                                      ></i>
+                                                      <input type="number" id="rooms" name="rooms" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="number of rooms" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
                                                     </div>
                                                 </div>
                                                 <!-- End Input -->
@@ -209,8 +210,8 @@
                                                <span class="d-block text-gray-1  font-weight-normal mb-0 text-left">Guests</span>
                                                <div class="mb-4">
                                                    <div class="input-group border-bottom border-width-2 border-color-1">
-                                                       <i class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold font-size-22"></i>
-                                                     <input type="number" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="number of guests" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
+                                                       <i class="flaticon-plus d-flex align-items-center mr-2 text-primary font-weight-semi-bold font-size-22"></i>
+                                                     <input id="guests" type="number" class="form-control font-weight-medium font-size-15 shadow-none hero-form border-0 p-0" placeholder="number of guests" aria-label="Keyword or title" aria-describedby="keywordInputAddon">
                                                    </div>
                                                </div>
                                                <!-- End Input -->
@@ -218,7 +219,7 @@
                                                 <div class="text-center">
                                                     <button type="submit" class="btn btn-primary height-60 w-100 font-weight-bold mb-xl-0 mb-lg-1 transition-3d-hover"><i class="flaticon-magnifying-glass mr-2 font-size-17"></i>Search</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="pb-4 mb-2">
@@ -2686,6 +2687,36 @@
                 // initialization of go to
                 $.HSCore.components.HSGoTo.init('.js-go-to');
             });
+
+
+             // Function to format date as "M d / Y"
+        function formatDate(date) {
+            const options = { month: 'short', day: 'numeric', year: 'numeric' };
+            return new Intl.DateTimeFormat('en-US', options).format(date).replace(',', '');
+        }
+
+        // Function to get the default dates (today and tomorrow)
+        function getDefaultDates() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(today.getDate() + 1);
+            
+            const todayFormatted = formatDate(today);
+            const tomorrowFormatted = formatDate(tomorrow);
+            
+            return [todayFormatted, tomorrowFormatted];
+        }
+
+        // Set the default dates as data-rp-default-date attribute
+        function setDefaultDates() {
+            const datePicker = document.getElementById('departReturn');
+            const placeholder = document.getElementById('checkInOut')
+            const defaultDates = getDefaultDates();
+            placeholder.setAttribute('data-rp-default-date', JSON.stringify(defaultDates));
+        }
+
+        // Call the function to set the default dates
+        setDefaultDates();
         </script>
     </body>
 </html>

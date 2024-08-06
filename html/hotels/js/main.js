@@ -1,3 +1,7 @@
+const offersContainer = document.getElementById('stays-container');
+const maxRooms = 15;
+
+
 async function searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guests) {
   try {
     const response = await fetch('https://nesterlify-server-6.onrender.com/api/search-stays', {
@@ -95,6 +99,66 @@ async function handleStaysSearch(event){
 
 }
 
+async function handleStaysSearchOnHotelList(event){
+  event.preventDefault();
+  console.log('submitted');
+  const location = document.getElementById('location').value.trim();
+  const [city, country] = location.split(',').map(part=> part.trim());
+  const rooms = document.getElementById('rooms').value.trim();
+  const checkInOut = document.getElementById('checkInOut').value.trim();
+  const guests = document.getElementById('guests').value.trim()
+  console.log(checkInOut);
+
+
+  // Function to parse and format the date
+  function formatDate(dateStr) {
+    const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+    const date = new Date(`${month} ${day}, ${year}`);
+    const yearFormatted = date.getFullYear();
+    const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
+    const dayFormatted = String(date.getDate()).padStart(2, "0");
+    return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+  }
+
+  // Extract depart and return dates
+  const [checkInDateStr, checkOutDateStr] = checkInOut.split("-").map((date) => date.trim());
+  const checkInDate = formatDate(checkInDateStr);
+  const checkOutDate = formatDate(checkOutDateStr);
+
+  console.log(checkInDate, checkOutDate);
+
+  const coordinates = await getCoordinates(city, country);
+  const latitude = coordinates.lat;
+  const longitude = coordinates.lng;
+  console.log(latitude, longitude);
+  const guestsArray = generateGuestsArray(guests);
+  const results = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
+  console.log(results);
+
+  // Store the results in localStorage and redirect
+  localStorage.setItem('searchResults', JSON.stringify(results));
+
+  offersContainer.innerHTML = '';
+
+  if (results && results.length > 0) {
+    results.slice(0, maxRooms).forEach((accommodation, index) => {
+      const roomCard = createRoomCard(accommodation, index);
+      offersContainer.appendChild(roomCard);
+    });
+
+    document.querySelectorAll('.stay-card a').forEach((link, index) => {
+      link.addEventListener('click', function(event) {
+        localStorage.setItem('selectedStayIndex', index);
+      });
+    });
+  } else {
+    offersContainer.innerHTML = '<p>No accommodations found!</p>';
+  }
+
+  
+
+}
+
 // Function to get tomorrow's date in YYYY-MM-DD format
 function getTomorrowDate() {
   const today = new Date();
@@ -113,8 +177,6 @@ function getDateAfterFiveDays(tomorrowDate) {
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const offersContainer = document.getElementById('stays-container');
-  const maxRooms = 15;
 
   let results = JSON.parse(localStorage.getItem('searchResults'));
 
