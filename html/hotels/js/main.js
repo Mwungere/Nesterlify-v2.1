@@ -36,6 +36,66 @@ async function searchStays(rooms, longitude, latitude, checkInDate, checkOutDate
   }
 }
 
+async function handleStaysSearchOnHotelList(event){
+  event.preventDefault();
+  console.log('submitted');
+  const location = document.getElementById('location').value.trim();
+  const [city, country] = location.split(',').map(part=> part.trim());
+  const rooms = document.getElementById('rooms').value.trim();
+  const checkInOut = document.getElementById('checkInOut').value.trim();
+  const guests = document.getElementById('guests').value.trim()
+  console.log(checkInOut);
+
+
+  // Function to parse and format the date
+  function formatDate(dateStr) {
+    const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+    const date = new Date(`${month} ${day}, ${year}`);
+    const yearFormatted = date.getFullYear();
+    const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
+    const dayFormatted = String(date.getDate()).padStart(2, "0");
+    return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+  }
+
+  // Extract depart and return dates
+  const [checkInDateStr, checkOutDateStr] = checkInOut.split("-").map((date) => date.trim());
+  const checkInDate = formatDate(checkInDateStr);
+  const checkOutDate = formatDate(checkOutDateStr);
+
+  console.log(checkInDate, checkOutDate);
+
+  const coordinates = await getCoordinates(city, country);
+  const latitude = coordinates.lat;
+  const longitude = coordinates.lng;
+  console.log(latitude, longitude);
+  const guestsArray = generateGuestsArray(guests);
+  const results = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
+  console.log(results);
+
+  // Store the results in localStorage and redirect
+  localStorage.setItem('searchResults', JSON.stringify(results));
+
+  offersContainer.innerHTML = '';
+
+  if (results && results.length > 0) {
+    results.slice(0, maxRooms).forEach((accommodation, index) => {
+      const roomCard = createRoomCard(accommodation, index);
+      offersContainer.appendChild(roomCard);
+    });
+
+    document.getElementById('details').forEach((link, index) => {
+      link.addEventListener('click', function(event) {
+        localStorage.setItem('selectedStayIndex', index);
+      });
+    });
+  } else {
+    offersContainer.innerHTML = '<p>No accommodations found!</p>';
+  }
+
+  
+
+}
+
 async function getCoordinates(city, country) {
   const apiKey = 'a4932359feec4dee854cd7699665b2ce';
   const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${city}+${country}&key=${apiKey}`);
@@ -99,66 +159,6 @@ async function handleStaysSearch(event){
 
 }
 
-async function handleStaysSearchOnHotelList(event){
-  event.preventDefault();
-  console.log('submitted');
-  const location = document.getElementById('location').value.trim();
-  const [city, country] = location.split(',').map(part=> part.trim());
-  const rooms = document.getElementById('rooms').value.trim();
-  const checkInOut = document.getElementById('checkInOut').value.trim();
-  const guests = document.getElementById('guests').value.trim()
-  console.log(checkInOut);
-
-
-  // Function to parse and format the date
-  function formatDate(dateStr) {
-    const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
-    const date = new Date(`${month} ${day}, ${year}`);
-    const yearFormatted = date.getFullYear();
-    const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
-    const dayFormatted = String(date.getDate()).padStart(2, "0");
-    return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
-  }
-
-  // Extract depart and return dates
-  const [checkInDateStr, checkOutDateStr] = checkInOut.split("-").map((date) => date.trim());
-  const checkInDate = formatDate(checkInDateStr);
-  const checkOutDate = formatDate(checkOutDateStr);
-
-  console.log(checkInDate, checkOutDate);
-
-  const coordinates = await getCoordinates(city, country);
-  const latitude = coordinates.lat;
-  const longitude = coordinates.lng;
-  console.log(latitude, longitude);
-  const guestsArray = generateGuestsArray(guests);
-  const results = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
-  console.log(results);
-
-  // Store the results in localStorage and redirect
-  localStorage.setItem('searchResults', JSON.stringify(results));
-
-  offersContainer.innerHTML = '';
-
-  if (results && results.length > 0) {
-    results.slice(0, maxRooms).forEach((accommodation, index) => {
-      const roomCard = createRoomCard(accommodation, index);
-      offersContainer.appendChild(roomCard);
-    });
-
-    document.querySelectorAll('.stay-card a').forEach((link, index) => {
-      link.addEventListener('click', function(event) {
-        localStorage.setItem('selectedStayIndex', index);
-      });
-    });
-  } else {
-    offersContainer.innerHTML = '<p>No accommodations found!</p>';
-  }
-
-  
-
-}
-
 // Function to get tomorrow's date in YYYY-MM-DD format
 function getTomorrowDate() {
   const today = new Date();
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       offersContainer.appendChild(roomCard);
     });
 
-    document.querySelectorAll('.stay-card a').forEach((link, index) => {
+    document.getElementById('details').forEach((link, index) => {
       link.addEventListener('click', function(event) {
         localStorage.setItem('selectedStayIndex', index);
       });
@@ -231,12 +231,12 @@ function createRoomCard(stay, index) {
   roomCard.innerHTML = `
      <div class="card transition-3d-hover shadow-hover-2 tab-card h-100">
        <div class="position-relative">
-         <a href="/html/hotels/hotel-single-v1.html" class="d-block gradient-overlay-half-bg-gradient-v5">
+         <a id="details" href="/html/hotels/hotel-single-v1.html" class="d-block gradient-overlay-half-bg-gradient-v5">
            <img class="min-height-230 bg-img-hero card-img-top" src="${url}" alt="img">
          </a>
          <div class="position-absolute bottom-0 left-0 right-0">
            <div class="px-4 pb-3">
-             <a href="/html/hotels/hotel-single-v1.html" class="d-block">
+             <a id="details" href="/html/hotels/hotel-single-v1.html" class="d-block">
                <div class="d-flex align-items-center font-size-14 text-white">
                  <i class="icon flaticon-pin-1 mr-2 font-size-20"></i> ${line_one}, ${city_name}
                </div>
@@ -256,7 +256,7 @@ function createRoomCard(stay, index) {
              </div>
            </div>
          </div>
-         <a href="/html/hotels/hotel-single-v1.html" class="card-title font-size-17 font-weight-medium text-dark">${name}</a>
+         <a id="details" href="/html/hotels/hotel-single-v1.html" class="card-title font-size-17 font-weight-medium text-dark">${name}</a>
          <div class="mt-2 mb-3">
            <span class="badge badge-pill badge-primary py-1 px-2 font-size-14 border-radius-3 font-weight-normal">${rating}/5</span>
            <span class="font-size-14 text-gray-1 ml-2">(${review_score}/10 reviews)</span>
