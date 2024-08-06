@@ -1267,8 +1267,10 @@
         // Set the default dates as data-rp-default-date attribute
         function setDefaultDates() {
             const datePicker = document.getElementById('departReturn');
+            const placeholder = document.getElementById('checkInOut')
             const defaultDates = getDefaultDates();
             datePicker.setAttribute('data-rp-default-date', JSON.stringify(defaultDates));
+            placeholder.setAttribute('data-rp-default-date', JSON.stringify(defaultDates));
         }
 
         // Call the function to set the default dates
