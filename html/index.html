@@ -531,7 +531,7 @@
                                 <div class="tab-pane fade" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab">
                                     <!-- New card content for Hotels tab -->
                                     <div class="card-body">
-                                        <form class="js-validate" id="searchingStaysForm">
+                                        <form class="js-validate" id="searchingStaysForm" onsubmit="handleStaysSearch(event)">
                                             <div
                                               class="row nav-select nav-select-1 d-block d-lg-flex mb-lg-2 px-lg-3 px-2 align-items-end"
                                             >
@@ -571,7 +571,7 @@
                                                     ></i>
                                                     <input
                                                       id="rooms"
-                                                      type="text"
+                                                      type="number"
                                                       name="rooms"
                                                       class="form-control font-size-lg-16 shadow-none hero-form font-weight-bold border-0 pl-0 bg-transparent"
                                                       placeholder="Number of rooms"

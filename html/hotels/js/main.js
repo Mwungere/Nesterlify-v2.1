@@ -53,7 +53,7 @@ function generateGuestsArray(guestsCount) {
 
 
 
-document.getElementById('searchingStaysForm').addEventListener('submit', async (event) => {
+async function handleStaysSearch(event){
   event.preventDefault();
   console.log('submitted');
   const location = document.getElementById('location').value.trim();
@@ -89,9 +89,7 @@ document.getElementById('searchingStaysForm').addEventListener('submit', async (
   const response = await searchStays(rooms, longitude, latitude, checkInDate, checkOutDate, guestsArray)
   console.log(response);
 
-
-})
-
+}
 
 // Function to get tomorrow's date in YYYY-MM-DD format
 function getTomorrowDate() {
