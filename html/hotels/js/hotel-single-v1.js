@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', async function() {
     const selectedStayIndex = localStorage.getItem('selectedStayIndex');
     const allStays = JSON.parse(localStorage.getItem('searchResults'));
-    console.log(allStays);
+    console.log(selectedStayIndex);
     if (selectedStayIndex !== null && allStays) {
         const stayData = allStays[selectedStayIndex];
         const otherStayData = await allStays.filter(stay => stay.id !== stayData.id)
