@@ -255,26 +255,41 @@ async function handleFlightSearch(event) {
 
   const fromWhere = document.getElementById("fromWhere").value.trim();
   const toWhere = document.getElementById("toWhere").value.trim();
-  const departDateStr = document.getElementById("departDate").value.trim()
-  const returnDateStr = document.getElementById("returnDate").value.trim();
+  const departReturn = document.getElementById("departReturn").value.trim()
   const travelers = document.getElementById("travelers").value.split(" ");
   const numAdults = parseInt(travelers[0], 10);
   const cabinClass = travelers[1].toLowerCase();
-  console.log(departReturn);
-
-  // Function to parse and format the date
-  function formatDate(dateStr) {
-    const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
-    const date = new Date(`${month} ${day}, ${year}`);
-    const yearFormatted = date.getFullYear();
-    const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
-    const dayFormatted = String(date.getDate()).padStart(2, "0");
-    return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
-  }
 
 
-  const departDate = formatDate(departDateStr);
-  const returnDate = formatDate(returnDateStr);
+    // Function to parse and format the date
+    function formatDate(dateStr) {
+      const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+      const date = new Date(`${month} ${day}, ${year}`);
+      const yearFormatted = date.getFullYear();
+      const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
+      const dayFormatted = String(date.getDate()).padStart(2, "0");
+      return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+    }
+  
+    // Extract depart and return dates
+    const [departDateStr, returnDateStr] = departReturn.split("-").map((date) => date.trim());
+    const departDate = formatDate(departDateStr);
+    const returnDate = formatDate(returnDateStr);
+
+
+  // // Function to parse and format the date
+  // function formatDate(dateStr) {
+  //   const [month, day, year] = dateStr.split(/[\/ ]/).filter(Boolean);
+  //   const date = new Date(`${month} ${day}, ${year}`);
+  //   const yearFormatted = date.getFullYear();
+  //   const monthFormatted = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-based in JS
+  //   const dayFormatted = String(date.getDate()).padStart(2, "0");
+  //   return `${yearFormatted}-${monthFormatted}-${dayFormatted}`;
+  // }
+
+
+  // const departDate = formatDate(departDateStr);
+  // const returnDate = formatDate(returnDateStr);
 
   console.log(departDate, returnDate);
 
