@@ -582,7 +582,7 @@ async function createPaymentByInvoice(formData) {
   }
 }
 
-function displayPaymentDetails(paymentData) {
+async function displayPaymentDetails(paymentData) {
   console.log(paymentData);
   const paymentModalContent = `
     <div class="modal-dialog">
@@ -596,7 +596,9 @@ function displayPaymentDetails(paymentData) {
           <p>Amount: ${paymentData.pay_amount} ${paymentData.pay_currency}</p>
           <p>Order Description: ${paymentData.order_description}</p>
           <p>Please send the payment to the above address or scan the QR code below.</p>
-          <div id="qrcode"></div> <!-- QR code will be inserted here -->
+          <div id="qrcodeDiv">
+          <img id="qrcode"/>
+          </div> <!-- QR code will be inserted here -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -615,8 +617,10 @@ function displayPaymentDetails(paymentData) {
   bootstrapModal.show();
 
   // Generate the QR code
+  const QRimage = document.getElementById('qrcode')
   const qrCodeData = `${paymentData.pay_address}?amount=${paymentData.pay_amount}`;
-  new QRCode(document.getElementById("qrcode"), qrCodeData);
+  const dataUrl = await QRCode.toDataURL(qrCodeData)
+  QRimage.src = dataUrl;
 }
 
 // Function to display booking confirmation modal and handle form submission
