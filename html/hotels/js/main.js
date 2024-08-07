@@ -83,7 +83,7 @@ async function handleStaysSearchOnHotelList(event){
       offersContainer.appendChild(roomCard);
     });
 
-    document.querySelectorAll('.details').forEach((link, index) => {
+    document.querySelectorAll('details').forEach((link, index) => {
       link.addEventListener('click', function(event) {
         localStorage.setItem('selectedStayIndex', index);
         console.log('clicked');
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       offersContainer.appendChild(roomCard);
     });
 
-    document.querySelectorAll('.details').forEach((link, index) => {
+    document.querySelectorAll('details').forEach((link, index) => {
       link.addEventListener('click', function(event) {
         localStorage.setItem('selectedStayIndex', index);
         console.log('clicked');
@@ -233,12 +233,12 @@ function createRoomCard(stay, index) {
   roomCard.innerHTML = `
      <div class="card transition-3d-hover shadow-hover-2 tab-card h-100">
        <div class="position-relative">
-         <a class="details" href="./hotel-single-v1.html" class="d-block gradient-overlay-half-bg-gradient-v5">
+         <a href="./hotel-single-v1.html" class=" details d-block gradient-overlay-half-bg-gradient-v5">
            <img class="min-height-230 bg-img-hero card-img-top" src="${url}" alt="img">
          </a>
          <div class="position-absolute bottom-0 left-0 right-0">
            <div class="px-4 pb-3">
-             <a class="details" href="./hotel-single-v1.html" class="d-block">
+             <a href="./hotel-single-v1.html" class="details d-block">
                <div class="d-flex align-items-center font-size-14 text-white">
                  <i class="icon flaticon-pin-1 mr-2 font-size-20"></i> ${line_one}, ${city_name}
                </div>
@@ -258,7 +258,7 @@ function createRoomCard(stay, index) {
              </div>
            </div>
          </div>
-         <a class="details" href="./hotel-single-v1.html" class="card-title font-size-17 font-weight-medium text-dark">${name}</a>
+         <a href="./hotel-single-v1.html" class="details card-title font-size-17 font-weight-medium text-dark">${name}</a>
          <div class="mt-2 mb-3">
            <span class="badge badge-pill badge-primary py-1 px-2 font-size-14 border-radius-3 font-weight-normal">${rating}/5</span>
            <span class="font-size-14 text-gray-1 ml-2">(${review_score}/10 reviews)</span>
