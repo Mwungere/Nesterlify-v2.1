@@ -295,7 +295,13 @@ async function handleFlightSearch(event) {
 
   // Determine trip type
   const tripType = document.querySelector(".tab-pane.active").id; // id of active tab
-  let slices = [];
+  let slices = [
+    {
+        origin: fromWhere,
+        destination: toWhere,
+        departure_date: departDate,
+    }
+  ];
   let passengers = Array(numAdults).fill({ type: "adult" });
 
   if (tripType === "pills-two-example2") {
