@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const stayData = allStays[selectedStayIndex];
         const otherStayData = await allStays.filter(stay => stay.id !== stayData.id)
         console.log(stayData);
+        console.log(otherStayData);
 
         
         if (stayData) {
@@ -69,7 +70,18 @@ document.addEventListener('DOMContentLoaded', async function() {
                 sliderThumb.appendChild(thumbDiv);
             });
 
+            const otherStaysContainer = document.getElementById('other-stays-container');
+            otherStaysContainer.innerHTML= '';
+
+            if(otherStayData && otherStayData.length > 0){
+                otherStayData.forEach((accommodation, index) => {
+                    const stayCard = createStayCard(accommodation, index);
+                    otherStaysContainer.appendChild(stayCard);
+                })
+            }
+
             if (amenities !== null) {
+              console.log('amenities is not null');
               const amenitiesTitle = document.getElementById("scroll-amenities")
               amenitiesTitle.innerText= 'Amenities'
               const amenitiesList = document.getElementById("amenities-list")
@@ -83,20 +95,19 @@ document.addEventListener('DOMContentLoaded', async function() {
             }else{
               console.log("no amenitites availlable");
             }
+
             
-            
+            document.querySelectorAll('.details').forEach((link, index) => {
+              link.addEventListener('click', function(event) {
+                localStorage.setItem('selectedStayIndex', index);
+                console.log('clicked');
+                window.location.href = './hotel-single-v1.html';
+        
+              });
+            });
 
-            const otherStaysContainer = document.getElementById('other-stays-container');
-            otherStaysContainer.innerHTML= '';
 
-            if(otherStayData && otherStayData.length > 0){
-                otherStayData.forEach((accommodation, index) => {
-                    const stayCard = createStayCard(accommodation, index);
-                    otherStaysContainer.appendChild(stayCard);
-                })
-            }
 
-              
 
         } else {
             console.log('No stay data found.');
@@ -110,8 +121,9 @@ function createAmenity (amenity){
   const amenityItem = document.createElement('li');
   amenityItem.classList.add('col-md-4', 'list-group-item');
   amenityItem.innerHTML = `
-  <i class="fas fa-check mr-3 text-primary font-size-24"></i> ${amenity}
+  <i class="fas fa-check mr-3 text-primary font-size-24"></i> ${amenity.description}
   `
+  return amenityItem
 }
 
 function createStayCard(stay, index) {
@@ -126,46 +138,46 @@ function createStayCard(stay, index) {
     StayCard.classList.add('stay-card');
   
     StayCard.innerHTML = `
-       <div class="card transition-3d-hover shadow-hover-2 tab-card h-100 mt-2">
-         <div class="position-relative">
-           <a href="../hotels/hotel-single-v1.html" class="d-block gradient-overlay-half-bg-gradient-v5">
-             <img class="min-height-230 bg-img-hero card-img-top" src="${url}" alt="img">
-           </a>
-           <div class="position-absolute bottom-0 left-0 right-0">
-             <div class="px-4 pb-3">
-               <a href="../hotels/hotel-single-v1.html" class="d-block">
-                 <div class="d-flex align-items-center font-size-14 text-white">
-                   <i class="icon flaticon-pin-1 mr-2 font-size-20"></i> ${line_one}, ${city_name}
-                 </div>
-               </a>
-             </div>
-           </div>
+     <div class="card transition-3d-hover shadow-hover-2 tab-card h-100">
+       <div class="position-relative">
+         <div class="details d-block gradient-overlay-half-bg-gradient-v5" style="height: 230px; overflow: hidden;">
+           <img class="bg-img-hero card-img-top" src="${url}" alt="img" style="height: 100%; width: 100%; object-fit: cover;">
          </div>
-         <div class="card-body pl-3 pr-4 pt-2 pb-3">
-           <div class="ml-1 mb-2">
-             <div class="d-inline-flex align-items-center font-size-13 text-lh-1 text-primary letter-spacing-3">
-               <div class="green-lighter">
-                 <small class="fas fa-star"></small>
-                 <small class="fas fa-star"></small>
-                 <small class="fas fa-star"></small>
-                 <small class="fas fa-star"></small>
-                 <small class="fas fa-star"></small>
+         <div class="position-absolute bottom-0 left-0 right-0">
+           <div class="px-4 pb-3">
+             <div class="details d-block">
+               <div class="d-flex align-items-center font-size-14 text-white">
+                 <i class="icon flaticon-pin-1 mr-2 font-size-20"></i> ${line_one}, ${city_name}
                </div>
              </div>
            </div>
-           <a href="../hotels/hotel-single-v1.html" class="card-title font-size-17 font-weight-medium text-dark">${name}</a>
-           <div class="mt-2 mb-3">
-             <span class="badge badge-pill badge-primary py-1 px-2 font-size-14 border-radius-3 font-weight-normal">${rating}/5</span>
-             <span class="font-size-14 text-gray-1 ml-2">(${review_score}/10 reviews)</span>
-           </div>
-           <div class="mb-0">
-             <span class="mr-1 font-size-14 text-gray-1">From</span>
-             <span class="font-weight-bold">${cheapest_rate_currency} ${cheapest_rate_total_amount}</span>
-             <span class="font-size-14 text-gray-1"> / night</span>
-           </div>
          </div>
        </div>
-    `;
+       <div class="card-body pl-3 pr-4 pt-2 pb-3">
+         <div class="ml-1 mb-2">
+           <div class="d-inline-flex align-items-center font-size-13 text-lh-1 text-primary letter-spacing-3">
+             <div class="green-lighter">
+               <small class="fas fa-star"></small>
+               <small class="fas fa-star"></small>
+               <small class="fas fa-star"></small>
+               <small class="fas fa-star"></small>
+               <small class="fas fa-star"></small>
+             </div>
+           </div>
+         </div>
+         <div class="details card-title font-size-17 font-weight-medium text-dark">${name}</div>
+         <div class="mt-2 mb-3">
+           <span class="badge badge-pill badge-primary py-1 px-2 font-size-14 border-radius-3 font-weight-normal">${rating}/5</span>
+           <span class="font-size-14 text-gray-1 ml-2">(${review_score}/10 reviews)</span>
+         </div>
+         <div class="mb-0">
+           <span class="mr-1 font-size-14 text-gray-1">From</span>
+           <span class="font-weight-bold">${cheapest_rate_currency} ${cheapest_rate_total_amount}</span>
+           <span class="font-size-14 text-gray-1"> / night</span>
+         </div>
+       </div>
+     </div>
+  `;
   
     return StayCard;
   }

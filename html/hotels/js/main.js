@@ -83,10 +83,11 @@ async function handleStaysSearchOnHotelList(event){
       offersContainer.appendChild(roomCard);
     });
 
-    document.querySelectorAll('details').forEach((link, index) => {
+    document.querySelectorAll('.details').forEach((link, index) => {
       link.addEventListener('click', function(event) {
         localStorage.setItem('selectedStayIndex', index);
         console.log('clicked');
+        window.location.href = './hotel-list.html';
       });
     });
   } else {
@@ -178,11 +179,12 @@ function getDateAfterFiveDays(tomorrowDate) {
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-
   let results = JSON.parse(localStorage.getItem('searchResults'));
-
-  if (!results) {
+  
+  if (results.length < 1) {
     // If no results in localStorage, fetch new results
+    console.log('loaded');
+
     try {
       const checkInDate = getTomorrowDate();
       const checkOutDate = getDateAfterFiveDays(checkInDate);
@@ -200,16 +202,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   offersContainer.innerHTML = '';
 
-  if (results && results.length > 0) {
+  if (results.length > 0) {
     results.slice(0, maxRooms).forEach((accommodation, index) => {
       const roomCard = createRoomCard(accommodation, index);
       offersContainer.appendChild(roomCard);
     });
 
-    document.querySelectorAll('details').forEach((link, index) => {
+    document.querySelectorAll('.details').forEach((link, index) => {
       link.addEventListener('click', function(event) {
         localStorage.setItem('selectedStayIndex', index);
         console.log('clicked');
+        window.location.href = './hotel-single-v1.html';
+
       });
     });
   } else {
@@ -219,6 +223,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 // Function to create a room card
+
 function createRoomCard(stay, index) {
   const { cheapest_rate_currency, cheapest_rate_total_amount } = stay;
   const { city_name, region, line_one } = stay.accommodation.location.address;
@@ -233,16 +238,16 @@ function createRoomCard(stay, index) {
   roomCard.innerHTML = `
      <div class="card transition-3d-hover shadow-hover-2 tab-card h-100">
        <div class="position-relative">
-         <a href="./hotel-single-v1.html" class=" details d-block gradient-overlay-half-bg-gradient-v5">
-           <img class="min-height-230 bg-img-hero card-img-top" src="${url}" alt="img">
-         </a>
+         <div class="details d-block gradient-overlay-half-bg-gradient-v5" style="height: 230px; overflow: hidden;">
+           <img class="bg-img-hero card-img-top" src="${url}" alt="img" style="height: 100%; width: 100%; object-fit: cover;">
+         </div>
          <div class="position-absolute bottom-0 left-0 right-0">
            <div class="px-4 pb-3">
-             <a href="./hotel-single-v1.html" class="details d-block">
+             <div class="details d-block">
                <div class="d-flex align-items-center font-size-14 text-white">
                  <i class="icon flaticon-pin-1 mr-2 font-size-20"></i> ${line_one}, ${city_name}
                </div>
-             </a>
+             </div>
            </div>
          </div>
        </div>
@@ -258,7 +263,7 @@ function createRoomCard(stay, index) {
              </div>
            </div>
          </div>
-         <a href="./hotel-single-v1.html" class="details card-title font-size-17 font-weight-medium text-dark">${name}</a>
+         <div class="details card-title font-size-17 font-weight-medium text-dark">${name}</div>
          <div class="mt-2 mb-3">
            <span class="badge badge-pill badge-primary py-1 px-2 font-size-14 border-radius-3 font-weight-normal">${rating}/5</span>
            <span class="font-size-14 text-gray-1 ml-2">(${review_score}/10 reviews)</span>

@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function fetchCurrenciesFromNowPayments() {
   try {
-    const response = await fetch("https://api.nowpayments.io/v1/currencies", {
+    const response = await fetch("https://api.nowpayments.io/v1/full-currencies", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -89,16 +89,20 @@ document
 
     if (searchTerm) {
       const filteredCurrencies = window.currencies.filter((currency) =>
-        currency.toLowerCase().includes(searchTerm)
+        currency.name.toLowerCase().includes(searchTerm) ||
+        currency.code.toLowerCase().includes(searchTerm)
       );
 
       filteredCurrencies.forEach((currency) => {
         const option = document.createElement("a");
         option.href = "#";
-        option.className = "dropdown-item";
-        option.textContent = currency;
+        option.className = "dropdown-item d-flex align-items-center";
+        option.innerHTML = `
+          <img src="https://nowpayments.io/${currency.logo_url}" alt="${currency.name} logo" class="coin-logo mr-2" style="width: 20px; height: 20px;">
+          <span>${currency.name} (${currency.code})</span>
+        `;
         option.addEventListener("click", function () {
-          document.getElementById("currencySearch").value = currency;
+          document.getElementById("currencySearch").value = currency.name;
           dropdown.innerHTML = ""; // Clear dropdown
           dropdown.classList.remove("show");
         });
@@ -111,28 +115,33 @@ document
     }
   });
 
-function populateCurrencySelect(currencies) {
-  // Save currencies to be used in the search filter
-  window.currencies = currencies;
 
-  // Ensure the dropdown is initially empty
-  const dropdown = document.getElementById("currencyDropdown");
-  dropdown.innerHTML = "";
-
-  // Populate the dropdown with options
-  currencies.forEach((currency) => {
-    const option = document.createElement("a");
-    option.href = "#";
-    option.className = "dropdown-item";
-    option.textContent = currency;
-    option.addEventListener("click", function () {
-      document.getElementById("currencySearch").value = currency;
-      dropdown.innerHTML = ""; // Clear dropdown
-      dropdown.classList.remove("show");
+  function populateCurrencySelect(currencies) {
+    // Save currencies to be used in the search filter
+    window.currencies = currencies;
+  
+    // Ensure the dropdown is initially empty
+    const dropdown = document.getElementById("currencyDropdown");
+    dropdown.innerHTML = "";
+  
+    // Populate the dropdown with options
+    currencies.forEach((currency) => {
+      const option = document.createElement("a");
+      option.href = "#";
+      option.className = "dropdown-item d-flex align-items-center";
+      option.innerHTML = `
+        <img src="${currency.logo_url}" alt="${currency.name} logo" class="coin-logo mr-2" style="width: 20px; height: 20px;">
+        <span>${currency.name} (${currency.code})</span>
+      `;
+      option.addEventListener("click", function () {
+        document.getElementById("currencySearch").value = currency.name;
+        dropdown.innerHTML = ""; // Clear dropdown
+        dropdown.classList.remove("show");
+      });
+      dropdown.appendChild(option);
     });
-    dropdown.appendChild(option);
-  });
-}
+  }
+  
 
 function calculateReturnDate(startDate, daysToAdd) {
   const date = new Date(startDate);
@@ -174,14 +183,14 @@ function displayFlightResults(results, container) {
           flightCard.innerHTML = `
     <div class="card transition-3d-hover shadow-hover-2 h-100">
         <div class="position-relative">
-            <a href="/html/flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
+            <a href="../flights/flight-booking.html?flightNumber=${operating_carrier_flight_number}&departingAt=${departing_at}&origin=${origin.city_name}&destination=${destination.city_name}&duration=${duration}&price=${total_amount}&currency=${total_currency}" class="d-block gradient-overlay-half-bg-gradient-v5">
                 <img class="card-img-top" src="../../assets/img/300x230/img27.jpg" alt="Image Description">
             </a>
             <div class="position-absolute top-0 right-0 end-0 p-2">
                 <img src="${operating_carrier.logo_symbol_url}" alt="${operating_carrier.name} Logo" class="img-fluid" style="width: 60px; height: auto;">
             </div>
             <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                <a href="/html/flights/flight-booking.html">
+                <a href="../flights/flight-booking.html">
                     <span class="badge badge-pill bg-white text-primary px-4 py-2 font-size-14 font-weight-normal">${total_currency} ${total_amount}</span>
                 </a>
                 <span class="ml-2 text-white">${operating_carrier.name}</span>
@@ -196,7 +205,7 @@ function displayFlightResults(results, container) {
             </div>
         </div>
         <div class="card-body px-3 pt-2">
-            <a href="/html/flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
+            <a href="../flights/flight-booking.html" class="card-title font-size-17 font-weight-bold mb-0 text-dark pt-1 pb-1 d-block">${origin.city_name} to ${destination.city_name}</a>
             <div class="font-size-14 text-gray-1">
                 Oneway Flight
             </div>
@@ -376,7 +385,7 @@ async function handleFlightSearch(event) {
       console.log("Search Results:", data.offers);
       localStorage.setItem("flightSearchResults", JSON.stringify(data.offers));
       if (!window.location.pathname.includes("flights-list.html")) {
-        window.location.href = "/html/flights/flights-list.html";
+        window.location.href = "../flights/flights-list.html";
       } else {
         const offersContainer = document.getElementById("flights-container");
         displayFlightResults(data.offers, offersContainer);
@@ -644,6 +653,7 @@ function displayBookingConfirmation(
     let currency;
 
     const currencies = await fetchCurrenciesFromNowPayments();
+    console.log(currencies);
     populateCurrencySelect(currencies);
     const currencySelectionModal = new bootstrap.Modal(
       document.getElementById("currencySelectionModal"),
