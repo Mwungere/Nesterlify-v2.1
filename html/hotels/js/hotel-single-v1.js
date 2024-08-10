@@ -181,3 +181,9 @@ function createStayCard(stay, index) {
   
     return StayCard;
   }
+
+
+
+  document.getElementById('bookNowBtn').addEventListener('click', function() {
+    window.location.href = './hotel-booking.html';
+  })

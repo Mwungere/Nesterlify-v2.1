@@ -157,7 +157,7 @@ async function handleStaysSearch(event){
 
   // Store the results in localStorage and redirect
   localStorage.setItem('searchResults', JSON.stringify(response));
-  window.location.href = '/html/hotels/hotel-list.html';
+  window.location.href = './hotel-list.html';
 
 }
 
@@ -180,8 +180,8 @@ function getDateAfterFiveDays(tomorrowDate) {
 
 document.addEventListener('DOMContentLoaded', async () => {
   let results = JSON.parse(localStorage.getItem('searchResults'));
-  
-  if (results.length < 1) {
+  console.log('reached here');
+  if (results === null) {
     // If no results in localStorage, fetch new results
     console.log('loaded');
 
