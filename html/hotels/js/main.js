@@ -157,7 +157,7 @@ async function handleStaysSearch(event){
 
   // Store the results in localStorage and redirect
   localStorage.setItem('searchResults', JSON.stringify(response));
-  window.location.href = './hotel-list.html';
+  window.location.href = './hotels/hotel-list.html';
 
 }
 
